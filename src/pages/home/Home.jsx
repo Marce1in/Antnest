@@ -1,13 +1,13 @@
 import { Link } from "react-router-dom";
+import { Modal } from "react-modal";
 
 export default function Home() {
   return (
     <>
       <header className="flex justify-between items-center py-4 px-16 bg-gray-700">
-        <div className="flex items-center gap-4">
-          <h1 className="text-3xl text-white">Ant<span className="text-red-500">Nest</span></h1>
-          <button className="mr-5 btn btn-primary">Criar</button>
-        </div>
+        <h1 className="text-3xl text-white">
+          Ant<span className="text-red-500">Nest</span>
+        </h1>
         <nav>
           <ul className="flex items-center">
             <div className="flex items-center gap-1">
@@ -29,10 +29,36 @@ export default function Home() {
         </nav>
       </header>
       <main>
-        <section>
-          <h1 className="font-sans text-5xl text-center text-red-600">
-            Eu sou uma linda home-page
-          </h1>
+        <section className="flex flex-col py-16 px-36 gap-12">
+          <h1 className="text-4xl font-bold">Area de Trabalho</h1>
+
+          <div className="flex flex-col gap-10 mb-8">
+            <div className="flex items-center gap-4">
+              <h2 className="text-2xl uppercase font-semibold">
+                Seus projetos
+              </h2>
+              <button className="btn btn-primary">Criar</button>
+            </div>
+            <div className="grid">
+              <div className="rounded-md border-solid border-black border-2 w-[17rem] h-[10rem] text-center">
+                Projeto fake
+              </div>
+            </div>
+          </div>
+
+          <div className="flex flex-col gap-10">
+            <div className="flex items-center gap-4">
+              <h2 className="text-2xl uppercase font-semibold">
+                Projetos convidados
+              </h2>
+            </div>
+            <div className="grid">
+              <div className="rounded-md border-solid border-black border-2 w-[17rem] h-[10rem] text-center">
+                Projeto fake
+              </div>
+            </div>
+          </div>
+        
         </section>
       </main>
     </>
