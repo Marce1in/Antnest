@@ -5,7 +5,7 @@ export default function Home() {
     <>
       <header className="flex justify-between items-center py-4 px-16 bg-gray-700">
         <div className="flex items-center gap-4">
-          <h1 className="text-3xl">Ant<span className="text-red-500">Nest</span></h1>
+          <h1 className="text-3xl text-white">Ant<span className="text-red-500">Nest</span></h1>
           <button className="mr-5 btn btn-primary">Criar</button>
         </div>
         <nav>
@@ -16,7 +16,7 @@ export default function Home() {
                 <img
                   src="./guaxinim.jpg"
                   alt=""
-                  className="rounded-full w-16 h-16 mr-4"
+                  className="rounded-full w-16 h-16 mr-4 border-2 border-red-500 border-solid"
                 />
               </li>
               <li>
