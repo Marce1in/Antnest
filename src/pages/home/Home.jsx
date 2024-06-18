@@ -1,48 +1,81 @@
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { Modal } from "react-modal";
+import ListaProjetos from "./components/ListaProjetos";
 
 export default function Home() {
+  const [pessoas, setPessoas] = useState([]);
+  const [projetos, setProjetos] = useState([]);
+  const [nome, setNome] = useState("");
+
+ 
+  useEffect(() => {
+    if (localStorage.getItem("pessoas")) {
+      const pessoas2 = JSON.parse(localStorage.getItem("pessoas"));
+      setPessoas(pessoas2);
+
+      for (let i = 0; i < pessoas2.length; i++) {
+        if(pessoas2[i].sessao == 1){
+          setNome(pessoas2[i].name);
+          break;
+        }
+      }
+    }
+
+    if (localStorage.getItem("projetos")) {
+      const projetos2 = JSON.parse(localStorage.getItem("projetos"));
+      setProjetos(projetos2);
+
+    }
+  }, []);
+
+  const listaProjetos = projetos.map((projeto) => (
+    <ListaProjetos key={projeto.name} projeto={projeto} />
+  ));
+
   return (
     <>
-      <header className="flex justify-between items-center py-4 px-16 bg-gray-700">
-        <h1 className="text-3xl text-white">
-          Ant<span className="text-red-500">Nest</span>
+      <header className="flex justify-between items-center py-4 px-16 bg-secondary">
+        <h1 className="text-3xl text-text font-bold">
+          Ant<span className="text-primary">Nest</span>
         </h1>
         <nav>
-          <ul className="flex items-center">
+          <ul className="flex items-center hidden md:block">
             <div className="flex items-center gap-1">
-              <li className="text-white">Guaxinim da Silva</li>
+                <li className="hidden text-text md:block">{nome}</li>
               <li>
                 <img
                   src="./guaxinim.jpg"
                   alt=""
-                  className="rounded-full w-16 h-16 mr-4 border-2 border-red-500 border-solid"
+                  className="rounded-full w-16 h-16 mr-4 border-2 border-primary border-solid"
                 />
               </li>
-              <li>
-                <Link to="/login" className="btn btn-primary">
+              <li className>
+                <Link
+                  to="/login"
+                  className="rounded-xl py-2 px-8 bg-primary text-text"
+                >
                   Sair
                 </Link>
               </li>
             </div>
           </ul>
         </nav>
+        <Link to="/login" className="w-9 md:hidden">
+          <img src="./close.png" alt="" className="w-full" />
+        </Link>
       </header>
-      <main>
-        <section className="flex flex-col py-16 px-36 gap-12">
-          <h1 className="text-4xl font-bold">Area de Trabalho</h1>
+      <main className="bg-background">
+        <section className="flex flex-col py-16 px-36 gap-12 items-center md:items-start">
+          <h1 className="text-3xl font-bold text-center">Area de Trabalho</h1>
 
           <div className="flex flex-col gap-10 mb-8">
-            <div className="flex items-center gap-4">
+            <div className="flex flex-col items-center gap-4 md:flex-row">
               <h2 className="text-2xl uppercase font-semibold">
                 Seus projetos
               </h2>
-              <button className="btn btn-primary">Criar</button>
             </div>
             <div className="grid">
-              <div className="rounded-md border-solid border-black border-2 w-[17rem] h-[10rem] text-center">
-                Projeto fake
-              </div>
+              {listaProjetos}
             </div>
           </div>
 
@@ -58,7 +91,6 @@ export default function Home() {
               </div>
             </div>
           </div>
-        
         </section>
       </main>
     </>
