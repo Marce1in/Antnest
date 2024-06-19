@@ -34,7 +34,7 @@
  * 
  * @property {uuid} id - Id do cargo
  * @property {string} id - Nome do cargo
- * @property {permissoes} permissoes - Array
+ * @property {permissoes} permissoes - Objeto contendo as permissões, separados por "permissão": "bool"
  */
 
 /**
@@ -47,7 +47,7 @@
  */
 
 /**
- * @typedef {object} relacionamentoTarefaMembro
+ * @typedef {object} relacionamento_Tarefa_Membro
  * 
  * @property {uuid} idTarefa - id da tarefa onde o membro está alocado
  * @property {uuid} idMembro - id do membro que está alocado na tarefa

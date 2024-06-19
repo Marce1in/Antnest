@@ -1,6 +1,7 @@
 {
     "compilerOptions": {
         "checkJs": true,
-        "jsx": "preserve"
+        "jsx": "preserve",
+        "noImplicitAny": false
     }
 }

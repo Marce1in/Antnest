@@ -4,9 +4,8 @@
 
 
 /** 
- * @typedef {object} permissoes 
+ * @typedef {Object<string, boolean>} permissoes 
  * 
- * @property {string} permissao - Nome da permissão
  * @property {boolean} bool - Indica se o usuário tem permissão ou não
 */
 
