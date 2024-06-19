@@ -3,5 +3,6 @@
         "checkJs": true,
         "jsx": "preserve",
         "noImplicitAny": false
-    }
+    },
+    "exclude": ["dados.fake.js"]
 }

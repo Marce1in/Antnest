@@ -8,6 +8,7 @@
  * 
  */
 
+
 /**
  * @typedef {object} membro
  * 
@@ -16,6 +17,7 @@
  * @property {uuid} idCargo - Id do cargo do usuário dentro do projeto
  * @property {uuid} idProjeto - Id do projeto que o membro pertence
  */
+
 
 /**
  * @typedef {object} tarefa
@@ -37,6 +39,7 @@
  * @property {permissoes} permissoes - Objeto contendo as permissões, separados por "permissão": "bool"
  */
 
+
 /**
  * @typedef {object} projeto
  * 
@@ -45,6 +48,7 @@
  * @property {string} descricao - Descrição do produto
  * @property {uuid} idDono - Id da pessoa que criou o projeto
  */
+
 
 /**
  * @typedef {object} relacionamento_Tarefa_Membro
