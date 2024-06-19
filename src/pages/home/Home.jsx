@@ -1,6 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import ListaProjetos from "./components/ListaProjetos";
+import '../../types/tabelaTipos'
+
+/** @type usuario */
+const uwu = {
+    id: crypto.randomUUID(),
+    nome: "dudu",
+    senha: "123",
+    urlImagem: ""
+}
 
 export default function Home() {
   const [pessoas, setPessoas] = useState([]);
