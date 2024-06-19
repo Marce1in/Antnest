@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Modal } from "react-responsive-modal";
 import { Link } from "react-router-dom";
 import ListaProjetos from "./components/ListaProjetos";
 import '../../types/tabelaTipos'
@@ -15,15 +16,15 @@ export default function Home() {
   const [pessoas, setPessoas] = useState([]);
   const [projetos, setProjetos] = useState([]);
   const [nome, setNome] = useState("");
+  const [open, setOpen] = useState(false);
 
- 
   useEffect(() => {
     if (localStorage.getItem("pessoas")) {
       const pessoas2 = JSON.parse(localStorage.getItem("pessoas"));
       setPessoas(pessoas2);
 
       for (let i = 0; i < pessoas2.length; i++) {
-        if(pessoas2[i].sessao == 1){
+        if (pessoas2[i].sessao == 1) {
           setNome(pessoas2[i].name);
           break;
         }
@@ -33,13 +34,15 @@ export default function Home() {
     if (localStorage.getItem("projetos")) {
       const projetos2 = JSON.parse(localStorage.getItem("projetos"));
       setProjetos(projetos2);
-
     }
   }, []);
 
   const listaProjetos = projetos.map((projeto) => (
     <ListaProjetos key={projeto.name} projeto={projeto} />
   ));
+
+  const onOpenModal = () => setOpen(true);
+  const onCloseModal = () => setOpen(false);
 
   return (
     <>
@@ -50,7 +53,7 @@ export default function Home() {
         <nav>
           <ul className="flex items-center hidden md:block">
             <div className="flex items-center gap-1">
-                <li className="hidden text-text md:block">{nome}</li>
+              <li className="hidden text-text md:block">{nome}</li>
               <li>
                 <img
                   src="./guaxinim.jpg"
@@ -80,13 +83,36 @@ export default function Home() {
           <div className="flex flex-col gap-10 mb-8">
             <div className="flex flex-col items-center gap-4 md:flex-row">
               <h2 className="text-2xl uppercase font-semibold">
-                Seus projetos
+                seus projetos
               </h2>
+              <button
+                className="rounded-xl py-2 px-8 bg-primary text-text"
+                onClick={onOpenModal}
+              >
+                Criar
+              </button>
             </div>
-            <div className="grid">
-              {listaProjetos}
-            </div>
+            <div className="flex flex-col md:flex-row">{listaProjetos}</div>
           </div>
+          <Modal open={open} onClose={onCloseModal} center>
+            <div className="flex flex-col p-16 items-center">
+              <form action="" className="flex flex-col gap-7 items-center" >
+                <h1 className="text-2xl font-bold">Novo Projeto</h1>
+                <input
+                  type="text"
+                  placeholder="Nome do projeto"
+                  className="rounded-md border-solid border-black border-2 p-2 w-48"
+                />
+                <textarea
+                  placeholder="Descrição do projeto"
+                  className="rounded-md border-solid border-black border-2 p-2 w-96 h-48"
+                ></textarea>
+                <button className="rounded-xl py-2 px-8 bg-primary text-text">
+                  Criar
+                </button>
+              </form>
+            </div>
+          </Modal>
 
           <div className="flex flex-col gap-10">
             <div className="flex items-center gap-4">
