@@ -1,8 +1,10 @@
 {
     "compilerOptions": {
-        "checkJs": true,
+        "target": "es6",
+        "module": "esnext",
+        "moduleResolution": "node",
         "jsx": "preserve",
-        "noImplicitAny": false
+        "checkJs": true
     },
     "exclude": ["dados.fake.js"]
 }
