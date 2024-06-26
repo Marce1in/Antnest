@@ -3,6 +3,7 @@
  * 
  * @property {uuid} id - Id do usuário
  * @property {string} nome - Nome do usuário
+ * @property {string} email - Email do usuário
  * @property {string} senha - Senha do usuário
  * @property {string} urlImagem - Linka da imagem de perfil do usuário
  * 

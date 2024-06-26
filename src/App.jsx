@@ -14,7 +14,7 @@ import {
 import Tabela from '@tabela'
 
 // Iniciando todas as tabelas
-Tabela.iniciar("usuario", ["id", "nome", "senha", "urlImagem"])
+Tabela.iniciar("usuario", ["id", "nome", "email", "senha", "urlImagem"])
 Tabela.iniciar("projeto", ["id", "nome", "descricao", "idDono"])
 Tabela.iniciar("membro", ["id", "idUsuario", "idCargo", "idProjeto"])
 Tabela.iniciar("tarefa", ["id", "nome", "descricao", "dataExpiracao", "idProjeto"])
