@@ -11,11 +11,20 @@ import {
     Routes,
 } from "react-router-dom";
 
+import Tabela from '@tabela'
+
+// Iniciando todas as tabelas
+Tabela.iniciar("usuario", ["id", "nome", "senha", "urlImagem"])
+Tabela.iniciar("projeto", ["id", "nome", "descricao", "idDono"])
+Tabela.iniciar("membro", ["id", "idUsuario", "idCargo", "idProjeto"])
+Tabela.iniciar("tarefa", ["id", "nome", "descricao", "dataExpiracao", "idProjeto"])
+Tabela.iniciar("relacionamentoTarefaMembro", ["idTarefa", "idMembro"])
+Tabela.iniciar("cargo", ["id", "nome", "permissoes"]) 
+
 function App() {
 
     return (
         <>
-
             <Router>
                 <Routes>
                     <Route path="/" element={<Home />} />           
@@ -23,9 +32,7 @@ function App() {
                     <Route path="/registro" element={<Registro />} />           
                     <Route path="/projeto" element={<Projeto />} />           
                 </Routes>
-
             </Router>
-
         </>
     )
 }

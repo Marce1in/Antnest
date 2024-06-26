@@ -2,19 +2,28 @@
  * @class Tabela
  * @summary Representa uma tabela (array de objetos) que é salva no localStorage
  * 
- * @description Tabela é uma classe usada para abstrair o uso do localStorage. Com ela é possível localizar, deletar, mudar e adicionar objetos com facilidade a uma array
+ * @description Tabela é uma classe usada para abstrair o uso do localStorage. 
+ * Com ela é possível localizar, deletar, mudar e adicionar objetos com facilidade a uma array
  */
 export default class Tabela {
     /** 
-     * @field Uma array de objetosUma array de objetos
+     * @field Uma array de objetos
      * @type {object[]}
      */
     #_tabela 
+
+    /**
+     * @field Uma array de strings que representam os campos da tabela
+     * @type {string[]}
+     */
+    #_campos
+
     /** 
-     * @field A chave de onde estava salva a tabela
+     * @field A chave de onde está salva a tabela
      * @type {string}
      */
     #_localStorageKey 
+
     /** 
      * @field usado para funcionar como um hook em react
      * @summary Transforma a classe Tabela em um hook de react
@@ -29,6 +38,9 @@ export default class Tabela {
      */
     constructor(LocalStorageKey){
         this.#_tabela = this.#obterDoLocalStorage(LocalStorageKey)
+
+        this.#_campos = Object.keys(this.getTabela()[0])
+
         this.#_localStorageKey = LocalStorageKey
     }
 
@@ -39,9 +51,7 @@ export default class Tabela {
      * @returns {object[]}
      */
     getTabela(){
-        const primeiraChave = Object.keys(this.#_tabela[0])[0]
-
-        if (this.#_tabela[0][primeiraChave] == null){
+        if (this.#_tabela[0][this.campos[0]] == null && this.#_tabela.length > 1){
             return this.#_tabela.slice(1)
         }
         else{
@@ -54,11 +64,21 @@ export default class Tabela {
      * @summary sobscreve o valor da tabela
      * 
      * @param {object[]} tabela
+     *
      */
     setTabela(tabela){
         this.#_tabela = tabela 
     }
 
+    /**
+     * @method campos
+     * @summary retorna todos campos de uma tabela
+     *
+     * @returns {string[]}
+     */
+    get campos(){
+        return this.#_campos
+    }
 
     /**
      * @method encontrarUmPor
@@ -129,6 +149,7 @@ export default class Tabela {
         })
 
         if (this.setTabelaHook){
+            this.setTabela(tabela)
             this.setTabelaHook(tabela)
         }
         else{
@@ -171,7 +192,7 @@ export default class Tabela {
         this.#validarObjeto(objeto)
         const tabela = [...this.#_tabela]
 
-        if (Object.keys(tabela[0]).length != Object.keys(objeto).length){
+        if (this.campos.length != Object.keys(objeto).length){
             throw Error(`O objeto adicionado não é uma instancia válida da tabela! ${objeto}`)
         }
 
@@ -222,12 +243,10 @@ export default class Tabela {
      * @return {void}
      */
     #validarObjeto(objeto){
-        /** @type object*/
-        const instanciaTabela = this.#_tabela[0]
 
         Object.keys(objeto).forEach(key => {
 
-            if(!Object.keys(instanciaTabela).includes(key)){
+            if(!this.campos.includes(key)){
                 throw Error(`Objeto Inválido, a chave "${key}" não existe na tabela!`)
             }
         })
@@ -240,10 +259,14 @@ export default class Tabela {
      * 
      * @summary Inicia uma tabela no LocalStorage
      * 
-     * @param {string[]} campos - Uma array de strings que nomeia todos os campos que uma coluna na tabela terá. (todos os campos de um objeto dentro da array de tabelas)
      * @param {string} key - Onde será armazenada a tabela. Declara como se chamará a chave do valor no localStorage
+     * @param {string[]} campos - Uma array de strings que nomeia todos os campos que uma coluna na tabela terá. (todos os campos de um objeto dentro da array de tabelas)
      */
-    static iniciar(campos, key){
+    static iniciar(key, campos){
+        if (!localStorage.getItem(key)){
+            return
+        }
+
         const tabela = [{}]
         campos.forEach(campo => {
             tabela[0][campo] = null
@@ -256,7 +279,7 @@ export default class Tabela {
     * @method encontrarEmLocalStoragePor
     * @static
     * 
-    * @summary encontra objetos dentro de uma tabela
+    * @summary encontra objetos dentro de uma tabela no localStorage
     *
     * @description Dado um valor, compara esse valor com o campo de cada objeto dentro
     * de uma tabela (array). Retorna uma tabela (array) de todos os objetos com o valor
@@ -267,14 +290,14 @@ export default class Tabela {
     * @param {string} keyTabela - A chave da tabela no localStorage
     * @param {boolean} [unico] - Se for true, retorna somente 1 objeto e não uma array
     *
-    * @returns {object[] | object | null}
+    * @returns {object[] | object}
     */
     static encontrarEmLocalStoragePor(campo, valor, keyTabela, unico = false) {
         const objetosComOValor = []
 
         const localItem = localStorage.getItem(keyTabela)
         if (!localItem){
-            return null
+            return []
         }
 
         /** @type{object[]} */
@@ -296,7 +319,52 @@ export default class Tabela {
 
 
         if (objetosComOValor.length <= 0){ 
-            return null 
+            return [] 
+        }
+        else if (unico){
+            return objetosComOValor[0]
+        }
+        else {
+            return objetosComOValor
+        }
+    }
+
+    /**
+    * @method encontrarEmTabelaPor
+    * @static
+    * 
+    * @summary encontra objetos dentro de uma tabela
+    *
+    * @description Dado um valor, compara esse valor com o campo de cada objeto dentro
+    * de uma tabela (array). Retorna uma tabela (array) de todos os objetos com o valor
+    * correspondente ou retorna apenas um objeto se o parâmetro "unico" for passada como true
+    *
+    * @param {string} campo - O campo do objeto
+    * @param {*} valor - O valor que deseja ser encontrado dentro da tabela
+    * @param {object[]} tabela - A tabela (array de objetos)
+    * @param {boolean} [unico] - Se for true, retorna somente 1 objeto e não uma array
+    *
+    * @returns {object[] | object}
+    */
+    static encontrarEmTabelaPor(campo, valor, tabela, unico = false) {
+        const objetosComOValor = []
+
+        tabela.some(objeto => {
+            if (objeto[campo] == valor) {
+
+                if (unico){
+                    objetosComOValor.push(objeto)
+                    return true
+                }
+                else {
+                    objetosComOValor.push(objeto)
+                }
+            }
+        })
+
+
+        if (objetosComOValor.length <= 0){ 
+            return [] 
         }
         else if (unico){
             return objetosComOValor[0]

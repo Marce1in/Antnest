@@ -26,7 +26,7 @@
  * @property {string} nome - Nome da tarefa
  * @property {string} descricao - Descrição da tarefa
  * @property {string} dataExpiracao - Data que a tarefa irá expirar (ficando vermelha)
- * @property {uuid} id - Id do projeto que a tarefa pertence
+ * @property {uuid} idProjeto - Id do projeto que a tarefa pertence
  * 
  */
 
@@ -35,7 +35,7 @@
  * @typedef {object} cargo
  * 
  * @property {uuid} id - Id do cargo
- * @property {string} id - Nome do cargo
+ * @property {string} nome - Nome do cargo
  * @property {permissoes} permissoes - Objeto contendo as permissões, separados por "permissão": "bool"
  */
 
@@ -51,7 +51,7 @@
 
 
 /**
- * @typedef {object} relacionamento_Tarefa_Membro
+ * @typedef {object} relacionamentoTarefaMembro
  * 
  * @property {uuid} idTarefa - id da tarefa onde o membro está alocado
  * @property {uuid} idMembro - id do membro que está alocado na tarefa

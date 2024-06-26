@@ -18,7 +18,7 @@ export default class Sessao{
     }
 
     /**
-     * @param {string} keySessao
+     * @param {string} [keySessao]
      */
     static obter(keySessao = "sessao"){
         return JSON.parse(localStorage.getItem(keySessao))

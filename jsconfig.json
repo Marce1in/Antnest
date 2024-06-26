@@ -1,6 +1,12 @@
 {
     "compilerOptions": {
         "target": "es6",
+        "baseUrl": "src"
+        "paths": {
+            "@tabela": ["helpers/tabela.js"]
+            "@useTabela": ["helpers/useTabela.js"]
+            "@sessao": ["helpers/sessao.js"]
+        }
         "module": "esnext",
         "moduleResolution": "node",
         "jsx": "preserve",
