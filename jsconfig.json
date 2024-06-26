@@ -1,7 +1,7 @@
 {
     "compilerOptions": {
         "target": "es6",
-        "baseUrl": "/src",
+        "baseUrl": ".",
         "paths": {
             "@tabela": ["src/helpers/tabela.js"],
             "@useTabela": ["src/helpers/useTabela.js"],
