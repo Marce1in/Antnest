@@ -1,5 +1,5 @@
 /**
- * @typedef {object} usuario
+ * @typedef {object} Usuario
  * 
  * @property {uuid} id - Id do usuário
  * @property {string} nome - Nome do usuário
@@ -11,7 +11,7 @@
 
 
 /**
- * @typedef {object} membro
+ * @typedef {object} Membro
  * 
  * @property {uuid} id - Id do membro
  * @property {uuid} idUsuario - Id do usuario
@@ -21,7 +21,7 @@
 
 
 /**
- * @typedef {object} tarefa
+ * @typedef {object} Tarefa
  * 
  * @property {uuid} id - Id da tarefa
  * @property {string} nome - Nome da tarefa
@@ -33,7 +33,7 @@
 
 
 /**
- * @typedef {object} cargo
+ * @typedef {object} Cargo
  * 
  * @property {uuid} id - Id do cargo
  * @property {string} nome - Nome do cargo
@@ -42,7 +42,7 @@
 
 
 /**
- * @typedef {object} projeto
+ * @typedef {object} Projeto
  * 
  * @property {uuid} id - Id do projeto
  * @property {string} nome - Nome do projeto 
@@ -52,7 +52,7 @@
 
 
 /**
- * @typedef {object} relacionamentoTarefaMembro
+ * @typedef {object} RelacionamentoTarefaMembro
  * 
  * @property {uuid} idTarefa - id da tarefa onde o membro está alocado
  * @property {uuid} idMembro - id do membro que está alocado na tarefa

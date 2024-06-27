@@ -39,7 +39,7 @@ export default class Tabela {
     constructor(LocalStorageKey){
         this.#_tabela = this.#obterDoLocalStorage(LocalStorageKey)
 
-        this.#_campos = Object.keys(this.getTabela()[0])
+        this.#_campos = Object.keys(this.#_tabela[0])
 
         this.#_localStorageKey = LocalStorageKey
     }
@@ -263,7 +263,7 @@ export default class Tabela {
      * @param {string[]} campos - Uma array de strings que nomeia todos os campos que uma coluna na tabela terá. (todos os campos de um objeto dentro da array de tabelas)
      */
     static iniciar(key, campos){
-        if (!localStorage.getItem(key)){
+        if (localStorage.getItem(key)){
             return
         }
 

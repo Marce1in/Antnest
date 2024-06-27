@@ -12,6 +12,7 @@ import {
 } from "react-router-dom";
 
 import Tabela from '@tabela'
+import { Toaster } from 'sonner'
 
 // Iniciando todas as tabelas
 Tabela.iniciar("usuario", ["id", "nome", "email", "senha", "urlImagem"])
@@ -33,6 +34,7 @@ function App() {
                     <Route path="/projeto" element={<Projeto />} />           
                 </Routes>
             </Router>
+            <Toaster richColors/>
         </>
     )
 }

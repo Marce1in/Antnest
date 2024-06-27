@@ -10,7 +10,8 @@ export default defineConfig({
         alias: {
             '@tabela': path.resolve(__dirname, './src/helpers/tabela.js'),
             '@useTabela': path.resolve(__dirname, './src/helpers/useTabela.js'),
-            '@sessao': path.resolve(__dirname, './src/helpers/sessao.js')
+            '@sessao': path.resolve(__dirname, './src/helpers/sessao.js'),
+            '@utils': path.resolve(__dirname, './src/helpers/utils.js')
         }
     }
 })

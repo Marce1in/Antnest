@@ -5,7 +5,8 @@
         "paths": {
             "@tabela": ["src/helpers/tabela.js"],
             "@useTabela": ["src/helpers/useTabela.js"],
-            "@sessao": ["src/helpers/sessao.js"]
+            "@sessao": ["src/helpers/sessao.js"],
+            "@utils": ["src/helpers/utils.js"]
         },
         "module": "esnext",
         "moduleResolution": "node",
