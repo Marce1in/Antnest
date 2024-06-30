@@ -24,7 +24,7 @@ Tabela.iniciar("relacionamentoTarefaMembro", ["idTarefa", "idMembro"])
 Tabela.iniciar("cargo", ["id", "nome", "permissoes", "idProjeto"]) 
 
 //Se for true os botões de limpar e popular localStorage aparecerão em todas páginas.
-const debug = true
+const debug = false
 
 function App() {
 
@@ -32,10 +32,10 @@ function App() {
         <>
             <Router>
                 <Routes>
-                    <Route path="/" element={<Home />} />           
-                    <Route path="/login" element={<Login />} />           
-                    <Route path="/registro" element={<Registro />} />           
-                    <Route path="/projeto" element={<Projeto />} />           
+                    <Route path="/" element={<Home />} />
+                    <Route path="/login" element={<Login />} />
+                    <Route path="/registro" element={<Registro />} />
+                    <Route path="/projeto" element={<Projeto />} />
                 </Routes>
             </Router>
             <Toaster richColors/>
