@@ -1,32 +1,32 @@
-import "./Drawer.css"
+import "./Gaveta.css"
 import { useEffect, useRef } from "react"
 //@ts-ignore
 import placeholder from '../assets/placeholder.svg'
+import { controlarModals } from "../helpers/useModal"
 
 /**
  * @param {Object} props
- * @param {boolean} props.drawerState - Controla a visibilidade da Gaveta
- * @param {Function} props.setDrawer - Atualiza a variável de Estado
+ * @param {controlarModals} props.modalsController - Atualiza a variável de Estado
  */
-export default function Gaveta({drawerState, setDrawer}){
+export default function Gaveta({modalsController}){
     const Icon = () => <img src={placeholder} />
 
     const drawerRef = useRef(null)
 
     useEffect(() => {
-        if (drawerState == true){
+        if (modalsController.gaveta == true){
             drawerRef.current.showModal()
         }
         else{
             drawerRef.current.close()
         }
-    }, [drawerState])
+    }, [modalsController.gaveta])
 
     return (
-        <dialog className="gaveta" ref={drawerRef} onCancel={() => setDrawer(false)}>
+        <dialog className="gaveta" ref={drawerRef} onCancel={() => modalsController.gaveta = false}>
             <div className="gaveta__container">
                 <ul className="gaveta__butoes">
-                    <li role="button" tabIndex={0} onClick={() => setDrawer(false)}>
+                    <li role="button" tabIndex={0} onClick={() => modalsController.gaveta = false}>
                         <Icon />
                     </li>
                     <li role="button" tabIndex={0}>

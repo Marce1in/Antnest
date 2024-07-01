@@ -1,0 +1,43 @@
+
+.ferramentas{
+    height: calc(100dvh - 3.125rem);
+
+    width: 5rem;
+
+    display: flex;
+
+    @media screen and (width <= 768px){
+        & {
+            display: none;
+        }
+    }
+}
+
+.ferramentas__container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 0.625rem;
+    padding-top: 0.625rem;
+
+    width: 100%;
+
+    > li {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        gap: .1rem;
+        max-width: 100%;
+
+        > img {
+            width: 3.125rem;
+        }
+
+        > span {
+            font-size: .6rem;
+        }
+    }
+
+}

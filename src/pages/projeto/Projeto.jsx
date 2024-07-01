@@ -1,13 +1,14 @@
 import { useState } from 'react'
 import './Projeto.css'
+import Gaveta from './components/Gaveta'
 //@ts-ignore
 import placeholder from './assets/placeholder.svg'
-import { useTabela } from '@useTabela'
-import Drawer from './components/Drawer'
+import Ferramentas from './components/Ferramentas'
+import Tarefas from './components/Tarefas'
+import useModals from './helpers/useModal'
 
 export default function Projeto(){
-    const tarefas = useTabela("tarefa")
-    const [drawer, setDrawer] = useState(false)
+    const modalsController = useModals()
 
     const Icon = () => <img src={placeholder} />
 
@@ -18,51 +19,14 @@ export default function Projeto(){
 
                 <button
                     className='nav__hamburguer'
-                    onClick={() => setDrawer(true)}
+                    onClick={() => modalsController.gaveta = true}
                 > <Icon /> </button>
             </nav>
             <div className="layout">
-                <main className="tarefas">
-                    <ul className="tarefas__container">
-                        <li>Teste</li>
-                        <li>Teste</li>
-                        <li>Teste</li>
-                        <li>Teste</li>
-                        <li>Teste</li>
-                        <li>Teste</li>
-                        <li>Teste</li>
-                    </ul>
-                </main>
-                <aside className="ferramentas">
-                    <ul className="ferramentas__container">
-                        <li role="button" tabIndex={0}>
-                            <Icon />
-                            <span>
-                                Criar
-                            </span>
-                        </li>
-                        <li role="button" tabIndex={0}>
-                            <Icon />
-                            <span>
-                                Membros
-                            </span>
-                        </li>
-                        <li role="button" tabIndex={0}>
-                            <Icon />
-                            <span>
-                                Cargos
-                            </span>
-                        </li>
-                        <li role="button" tabIndex={0}>
-                            <Icon />
-                            <span>
-                                Configurações
-                            </span>
-                        </li>
-                    </ul>
-                </aside>
+                <Tarefas />
+                <Ferramentas />
+                <Gaveta modalsController={modalsController} />
             </div>
-            <Drawer setDrawer={setDrawer} drawerState={drawer} />
         </>
     )
 }
