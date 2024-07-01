@@ -1,14 +1,14 @@
-import { useState } from 'react'
 import './Projeto.css'
 import Gaveta from './components/Gaveta'
 //@ts-ignore
 import placeholder from './assets/placeholder.svg'
 import Ferramentas from './components/Ferramentas'
 import Tarefas from './components/Tarefas'
-import useModals from './helpers/useModal'
+import { useModals } from './helpers/useModal'
 
-export default function Projeto(){
-    const modalsController = useModals()
+export default function Projeto() {
+    /** @type {Object}*/
+    const modals = useModals("gaveta", "criar", "membros", "cargos", "config")
 
     const Icon = () => <img src={placeholder} />
 
@@ -19,13 +19,13 @@ export default function Projeto(){
 
                 <button
                     className='nav__hamburguer'
-                    onClick={() => modalsController.gaveta = true}
+                    onClick={() => modals.gaveta = true}
                 > <Icon /> </button>
             </nav>
             <div className="layout">
                 <Tarefas />
                 <Ferramentas />
-                <Gaveta modalsController={modalsController} />
+                <Gaveta modals={modals} />
             </div>
         </>
     )

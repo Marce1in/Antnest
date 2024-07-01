@@ -6,7 +6,7 @@ import { useEffect, useRef } from "react"
  * @param {boolean} props.modalState - Controla a visibilidade do Modal
  * @param {Function} props.setModal - Atualiza a variável de Estado
  */
-export default function Gaveta({modalState, setModal}){
+export default function Modal({modalState, setModal}){
 
     const modalRef = useRef(null)
 
