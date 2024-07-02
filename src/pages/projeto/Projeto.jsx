@@ -1,5 +1,6 @@
 import './Projeto.css'
 import Gaveta from './components/Gaveta'
+import { HiBars3 } from "react-icons/hi2";
 //@ts-ignore
 import placeholder from './assets/placeholder.svg'
 import Ferramentas from './components/Ferramentas'
@@ -20,7 +21,7 @@ export default function Projeto() {
                 <button
                     className='nav__hamburguer'
                     onClick={() => modals.gaveta = true}
-                > <Icon /> </button>
+                > <HiBars3 size="3.125rem"/> </button>
             </nav>
             <div className="layout">
                 <Tarefas />
