@@ -33,7 +33,7 @@ export default function Gaveta({modals}){
                     <li role="button" tabIndex={0} onClick={() => modals.gaveta = false}>
                         <HiBars3 size="3.125rem"/>
                     </li>
-                    <li role="button" tabIndex={0} onClick={() => { console.log(modals); return modals["criar"] = true}}>
+                    <li role="button" tabIndex={0} onClick={() => modals["criar"] = true}>
                         <span>Criar</span>
                         <MdOutlineCreate  size="3.125rem"/>
                     </li>

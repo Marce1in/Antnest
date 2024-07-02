@@ -7,14 +7,14 @@ import { HiBars3 } from "react-icons/hi2";
 //@ts-ignore
 import placeholder from '../assets/placeholder.svg'
 
-export default function Ferramentas(){
+export default function Ferramentas(modals){
     const Icon = () => <img src={placeholder} />
 
     return (
         <>
             <aside className="ferramentas">
                 <ul className="ferramentas__container">
-                    <li role="button" tabIndex={0}>
+                    <li role="button" tabIndex={0} onClick={() => {console.log("baz", modals), modals.criar = true}}>
                         <MdOutlineCreate  size="3.125rem"/>
                         <span>
                             Criar

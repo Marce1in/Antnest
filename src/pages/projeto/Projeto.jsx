@@ -7,7 +7,7 @@ import Ferramentas from './components/Ferramentas'
 import Tarefas from './components/Tarefas'
 
 import { useModals } from './helpers/useModal'
-import ModalsTelas from './components/Modals'
+import ModalsTelas from './components/ModalsTelas'
 
 export default function Projeto() {
     /** @type {Object}*/
@@ -19,7 +19,6 @@ export default function Projeto() {
         <>
             <nav className="nav">
                 <span className='nav__logo'>Ant<span>nest</span></span>
-
                 <button
                     className='nav__hamburguer'
                     onClick={() => modals.gaveta = true}
@@ -27,7 +26,7 @@ export default function Projeto() {
             </nav>
             <div className="layout">
                 <Tarefas />
-                <Ferramentas />
+                <Ferramentas modals={modals}/>
                 <Gaveta modals={modals} />
             </div>
             <ModalsTelas modals={modals}/>

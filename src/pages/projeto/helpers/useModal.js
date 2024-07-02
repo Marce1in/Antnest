@@ -3,7 +3,7 @@ import { useState } from "react"
 /** @param {...string} args */
 export function useModals(...args){
     const modals = {}
-    args.forEach(prop => modals[prop] = useState(false))
+    args.forEach(prop => modals[prop] = useState(true))
 
     const filtro = {
         /**
@@ -38,6 +38,5 @@ export function useModals(...args){
 
     }
     const modalsProxy = new Proxy(modals, filtro);
-
     return modalsProxy
 }

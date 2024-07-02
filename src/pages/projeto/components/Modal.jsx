@@ -7,7 +7,7 @@ export default function Modal(modals, nome, children){
     const modalRef = useRef(null)
 
     useEffect(() => {
-        console.log("nome: ", nome)
+        console.log("problema", modals)
         if (vazio(nome)){
             console.log("CUUuuu")
             return
@@ -22,7 +22,7 @@ export default function Modal(modals, nome, children){
         else{
             modalRef.current.close()
         }
-    }, [modals[nome]])
+    }, [])
 
     return (
         <dialog className="modal" ref={modalRef} onCancel={() => modals[nome] = false}>
