@@ -1,30 +1,36 @@
+import { vazio } from "@utils"
 import "./Modal.css"
 import { useEffect, useRef } from "react"
 
-/**
- * @param {Object} props
- * @param {boolean} props.modalState - Controla a visibilidade do Modal
- * @param {Function} props.setModal - Atualiza a variável de Estado
- */
-export default function Modal({modalState, setModal}){
+export default function Modal(modals, nome, children){
 
     const modalRef = useRef(null)
 
     useEffect(() => {
-        if (modalState == true){
+        console.log("nome: ", nome)
+        if (vazio(nome)){
+            console.log("CUUuuu")
+            return
+        }
+        console.log("foo")
+        console.log("objeto: ", modals)
+        console.log("modal: ", modals[nome])
+        console.log("estamos em: ", nome)
+        if (modals[nome] == true){
             modalRef.current.showModal()
         }
         else{
             modalRef.current.close()
         }
-    }, [modalState])
+    }, [modals[nome]])
 
     return (
-        <dialog className="modal" ref={modalRef} onCancel={() => setModal(false)}>
+        <dialog className="modal" ref={modalRef} onCancel={() => modals[nome] = false}>
             <button
                 className="modal__fechar"
-                onClick={() => setModal(false)}
+                onClick={() => modals[nome] = false}
             > ✕ </button>
+            {children}
         </dialog>
     )
 }

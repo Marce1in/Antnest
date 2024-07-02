@@ -19,6 +19,7 @@ export function useModals(...args){
                 throw Error(`O valor passado ao estado ${valor} não é um boleano :(`)
             }
 
+            console.log("bar")
             obj[prop][1](valor);
             return true;
         },

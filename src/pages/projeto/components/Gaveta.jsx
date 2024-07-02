@@ -28,7 +28,7 @@ export default function Gaveta({modals}){
                     <li role="button" tabIndex={0} onClick={() => modals.gaveta = false}>
                         <Icon />
                     </li>
-                    <li role="button" tabIndex={0}>
+                    <li role="button" tabIndex={0} onClick={() => { console.log(modals); return modals["criar"] = true}}>
                         <span>Criar</span>
                         <Icon />
                     </li>

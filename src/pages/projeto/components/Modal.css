@@ -1,0 +1,8 @@
+.modal {
+    
+}
+.modal__fechar{
+    position: absolute;
+    top: 0;
+    right: 0;
+}

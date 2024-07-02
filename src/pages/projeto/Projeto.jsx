@@ -4,7 +4,9 @@ import Gaveta from './components/Gaveta'
 import placeholder from './assets/placeholder.svg'
 import Ferramentas from './components/Ferramentas'
 import Tarefas from './components/Tarefas'
+
 import { useModals } from './helpers/useModal'
+import ModalsTelas from './components/Modals'
 
 export default function Projeto() {
     /** @type {Object}*/
@@ -27,6 +29,7 @@ export default function Projeto() {
                 <Ferramentas />
                 <Gaveta modals={modals} />
             </div>
+            <ModalsTelas modals={modals}/>
         </>
     )
 }
