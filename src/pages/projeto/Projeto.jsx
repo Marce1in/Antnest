@@ -2,7 +2,6 @@ import './Projeto.css'
 import Gaveta from './components/Gaveta'
 import { HiBars3 } from "react-icons/hi2";
 //@ts-ignore
-import placeholder from './assets/placeholder.svg'
 import Ferramentas from './components/Ferramentas'
 import Tarefas from './components/Tarefas'
 
@@ -13,8 +12,6 @@ export default function Projeto() {
     /** @type {Object}*/
     const modals = useModals("gaveta", "criar", "membros", "cargos", "config")
 
-    const Icon = () => <img src={placeholder} />
-
     return (
         <>
             <nav className="nav">
@@ -24,11 +21,13 @@ export default function Projeto() {
                     onClick={() => modals.gaveta = true}
                 > <HiBars3 size="3.125rem"/> </button>
             </nav>
+
             <div className="layout">
                 <Tarefas />
                 <Ferramentas modals={modals}/>
                 <Gaveta modals={modals} />
             </div>
+
             <ModalsTelas modals={modals}/>
         </>
     )

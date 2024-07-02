@@ -1,19 +1,14 @@
 import "./Gaveta.css"
 import { useEffect, useRef } from "react"
-import { IoPeopleOutline } from "react-icons/io5";
-import { HiOutlineCog6Tooth } from "react-icons/hi2";
-import { MdOutlineCreate } from "react-icons/md";
-import { LuUserCog2 } from "react-icons/lu";
 import { HiBars3 } from "react-icons/hi2";
 //@ts-ignore
-import placeholder from '../assets/placeholder.svg'
+import FerramentasLista from "./FerramentasLista";
 
 /**
  * @param {Object} props
  * @param {Object} props.modals - Atualiza a variável de Estado
  */
 export default function Gaveta({modals}){
-    const Icon = () => <img src={placeholder} />
 
     const drawerRef = useRef(null)
 
@@ -33,22 +28,7 @@ export default function Gaveta({modals}){
                     <li role="button" tabIndex={0} onClick={() => modals.gaveta = false}>
                         <HiBars3 size="3.125rem"/>
                     </li>
-                    <li role="button" tabIndex={0} onClick={() => modals["criar"] = true}>
-                        <span>Criar</span>
-                        <MdOutlineCreate  size="3.125rem"/>
-                    </li>
-                    <li role="button" tabIndex={0}>
-                        <span>Membros</span>
-                        <IoPeopleOutline  size="3.125rem"/>
-                    </li>
-                    <li role="button" tabIndex={0}>
-                        <span>Cargos</span>
-                        <LuUserCog2 size="3.125rem"/>
-                    </li>
-                    <li role="button" className="gaveta__Icone" tabIndex={0}>
-                        <span>Configurações</span>
-                        <HiOutlineCog6Tooth size="3.125rem"/>
-                    </li>
+                    <FerramentasLista modals={modals} />
                 </ul>
             </div>
         </dialog>
