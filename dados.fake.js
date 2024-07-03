@@ -61,6 +61,7 @@
         "id": "9bc4307a-adaa-4ba3-978f-33720c9f9076",
         "nome": "admin",
         "senha": "admin",
+        "email": "admin@gmail.com",
         "urlImagem": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSgW-9Jx6-Crl3276BP1k_XU2smWpgrwpdnfOPG1yqXYXmDSFV-OGD13-5&s=10"
     }
 ]
