@@ -84,7 +84,7 @@ export default function Home() {
             <Modal isOpen={isOpen} setModalOpen={() => setIsOpen(!isOpen)}>
               <RegistroProjeto id = {id}/>
             </Modal>
-            <div className="grid grid-cols-3">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
               <ListaProjetos id={id} />
             </div>
           </div>

@@ -3,10 +3,10 @@ import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 
 export default function RegistroProjeto({id}) {
-    const {register, handleSubmit} = useForm();
+    const {register, handleSubmit, reset} = useForm();
 
     function registrar(data){
-        const projetos = new Tabela("projetos");
+        const projetos = new Tabela("projeto");
 
         const projeto = {
             id: crypto.randomUUID(),
@@ -15,6 +15,8 @@ export default function RegistroProjeto({id}) {
             idDono: id
         }
 
+        reset();
+        
         projetos.adicionar(projeto);
         projetos.enviarParaLocalStorage();
         
@@ -24,10 +26,10 @@ export default function RegistroProjeto({id}) {
 
   return (
     <>
-      <form className="flex flex-col gap-5" onSubmit={handleSubmit(registrar)}>
-        <input type="text" placeholder="nome do projeto" className="border-solid border-b-2 border-b-black" {...register("nome")}/>
-        <input type="text" placeholder="descrição do projeto" className="border-solid border-b-2 border-b-black" {...register("descricao")}/>
-        <button className="bg-primary text-text py-2 px-4 rounded" type="submit">Registrar</button>
+      <form className="flex flex-col gap-5 border-solid border-black border-2 rounded-lg p-4" onSubmit={handleSubmit(registrar)}>
+        <input type="text" placeholder="nome do projeto" className="p-1 border-solid border-b-2 border-b-black" {...register("nome")}/>
+        <input type="text" placeholder="descrição do projeto" className="p-1 border-solid border-b-2 border-b-black" {...register("descricao")}/>
+        <button className="bg-primary text-text py-2 px-4 rounded w-28" type="submit">Registrar</button>
       </form>
     </>
   );
