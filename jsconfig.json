@@ -13,5 +13,4 @@
         "jsx": "preserve",
         "checkJs": true
     },
-    "exclude": ["dados.fake.js"]
 }

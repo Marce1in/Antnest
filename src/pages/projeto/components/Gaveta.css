@@ -1,0 +1,41 @@
+.gaveta{
+    max-height: unset;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-right: 0;
+    margin-left: auto;
+}
+
+.gaveta__container{
+    height: 100dvh;
+    width: 15rem;
+}
+
+.gaveta__butoes{
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+
+    gap: .625rem;
+
+    padding-right: .75rem;
+
+    > li {
+        display: flex;
+        align-items: center;
+
+        gap: .625rem;
+        padding-bottom: 1rem;
+
+        img {
+            width: 3.125rem
+        }
+        > span {
+            font-size: .6rem;
+        }
+
+        &:first-child {
+            padding-bottom: 0;
+        }
+    }
+}

@@ -1,16 +1,16 @@
-/** 
+/**
  * @class Tabela
  * @summary Representa uma tabela (array de objetos) que é salva no localStorage
- * 
+ *
  * @description Tabela é uma classe usada para abstrair o uso do localStorage. 
  * Com ela é possível localizar, deletar, mudar e adicionar objetos com facilidade a uma array
  */
 export default class Tabela {
-    /** 
+    /**
      * @field Uma array de objetos
      * @type {object[]}
      */
-    #_tabela 
+    #_tabela
 
     /**
      * @field Uma array de strings que representam os campos da tabela
@@ -31,9 +31,9 @@ export default class Tabela {
      * */
     setTabelaHook 
 
-    /** 
+    /**
      * @constructor
-     * 
+     *
      * @param {string} LocalStorageKey - A chave do localStorage onde salva os dados da Tabela
      */
     constructor(LocalStorageKey){
@@ -47,7 +47,7 @@ export default class Tabela {
     /**
      * @method getTabela
      * @summary Retorna toda tabela (array de objetos)
-     * 
+     *
      * @returns {object[]}
      */
     getTabela(){
@@ -62,7 +62,7 @@ export default class Tabela {
     /**
      * @method setTabela
      * @summary sobscreve o valor da tabela
-     * 
+     *
      * @param {object[]} tabela
      *
      */
@@ -83,10 +83,10 @@ export default class Tabela {
     /**
      * @method encontrarUmPor
      * @summary Encontra o primeiro objeto na tabela que bater com o {campo: valor}
-     * 
+     *
      * @param {string} campo - O campo da tabela
      * @param {*} valor - O valor que será usado para localizar o objeto
-     * 
+     *
      * @returns {object} - Retorna o objeto encontrado
      */
     encontrarUmPor(campo, valor){
@@ -109,7 +109,7 @@ export default class Tabela {
      *
      * @param {string} campo - O campo da tabela
      * @param {*} valor - O valor que será usado para localizar os objetos
-     * 
+     *
      * @returns {object[]} - Retorna uma tabela (array de objetos)
      */
     encontrarPor(campo, valor){
@@ -127,11 +127,11 @@ export default class Tabela {
     /**
      * @method mudarPor
      * @summary Muda os valores dentro de todas colunas da tabela que batem com o {campo: valor}
-     * 
+     *
      * @param {string} campo - O campo da tabela
      * @param {*} valor - O valor que será usado para localizar os objetos
      * @param {object} novosValores - Os novos valores para o objeto localizado
-     * 
+     *
      * @returns {void}
      */
     mudarPor(campo, valor, novosValores){
@@ -161,16 +161,16 @@ export default class Tabela {
     /**
      * @method deletarPor
      * @summary Deleta todos objetos dentro da tabela que batem com o {campo: valor} 
-     * 
+     *
      * @param {string} campo - O campo da tabela
      * @param {*} valor - O campo que será usado para localizar
-     * 
+     *
      * @returns {void}
      */
     deletarPor(campo, valor){
 
         const tabela = this.#_tabela.filter(objeto => objeto[campo] != valor)
-        
+
         if (this.setTabelaHook){
             this.setTabela(tabela)
             this.setTabelaHook(tabela)
@@ -180,12 +180,12 @@ export default class Tabela {
         }
     }
 
-    /** 
+    /**
      * @method adicionar
      * @summary Adiciona um objeto a tabela 
-     * 
+     *
      * @param {object} objeto - O objeto que será adicionado, o objeto adicionado precisa ter todos os campos de um objeto de dentro da tabela
-     * 
+     *
      * @returns {void}
      */
     adicionar(objeto){
@@ -210,7 +210,7 @@ export default class Tabela {
     /**
      * @method enviarParaLocalStorage
      * @summary Salva a tabela no localStorage utilizando-se da chave que foi passada na criação da Tabela
-     * 
+     *
      * @returns {void}
      */
     enviarParaLocalStorage(){
@@ -220,9 +220,9 @@ export default class Tabela {
     /**
      * @method obterDoLocalStorage
      * @summary Método privado que retorna a array de objetos que foi salva dentro do localStorage
-     * 
+     *
      * @param {string} key - A chave do localStorage onde está a tabela
-     * 
+     *
      * @return {object[]} - A tabela que está salva localStorage
      */
     #obterDoLocalStorage(key){
@@ -237,9 +237,9 @@ export default class Tabela {
     /**
      * @method validarObjeto
      * @summary Valida se os campos do objeto fazem parte dos campos de uma instancia da tabela (objeto)
-     * 
+     *
      * @param {object} objeto - Objeto a ser validado
-     * 
+     *
      * @return {void}
      */
     #validarObjeto(objeto){
@@ -251,14 +251,14 @@ export default class Tabela {
             }
         })
     }
-    
 
-    /** 
+
+    /**
      * @method iniciar
      * @static
-     * 
+     *
      * @summary Inicia uma tabela no LocalStorage
-     * 
+     *
      * @param {string} key - Onde será armazenada a tabela. Declara como se chamará a chave do valor no localStorage
      * @param {string[]} campos - Uma array de strings que nomeia todos os campos que uma coluna na tabela terá. (todos os campos de um objeto dentro da array de tabelas)
      */
@@ -278,7 +278,7 @@ export default class Tabela {
     /**
     * @method encontrarEmLocalStoragePor
     * @static
-    * 
+    *
     * @summary encontra objetos dentro de uma tabela no localStorage
     *
     * @description Dado um valor, compara esse valor com o campo de cada objeto dentro
@@ -332,7 +332,7 @@ export default class Tabela {
     /**
     * @method encontrarEmTabelaPor
     * @static
-    * 
+    *
     * @summary encontra objetos dentro de uma tabela
     *
     * @description Dado um valor, compara esse valor com o campo de cada objeto dentro
