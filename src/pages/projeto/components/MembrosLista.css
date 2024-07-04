@@ -1,0 +1,48 @@
+.membros{
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+}
+
+.membros__lista{
+    padding-top: 30px;
+    padding-bottom: 30px;
+
+    > li {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        gap: .5rem;
+        border-top: 2px solid black;
+
+        padding-top: 8px;
+        padding-bottom: 8px;
+
+        > img {
+            width: 2.5rem
+        }
+
+        &:last-child {
+            border-bottom: 2px solid black;
+        }
+    }
+}
+.membros__nome{
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    height:calc(:)
+
+    > span {
+        font-size: 1.5rem;
+        text-overflow: ellipsis;
+        font-weight: bold;
+        color: black;
+    }
+    > small{
+        margin-top: -6px;
+        font-size: .7rem;
+        color: gray;
+    }
+}
