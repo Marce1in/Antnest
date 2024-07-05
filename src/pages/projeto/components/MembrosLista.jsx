@@ -1,47 +1,27 @@
 import './MembrosLista.css'
 //@ts-ignore
-import placeholder from '../assets/placeholder.svg'
+import perfil from '../assets/fotoUsuarioPlaceholder.jpg'
+import MembroInstancia from './MembroInstancia'
+import MembroAdministrar from './MembroAdministrar'
 
-export default function MembrosLista({children}){
+export default function MembrosLista({membros}){
 
     return (
         <>
             <div className="membros">
                 <ul className="membros__lista">
-                    <li>
-                        <img src={placeholder} />
-                        <div className="membros__nome">
-                            <span>João que matou o Cheske</span>
-                            <small>Garoto de programa</small>
-                        </div>
-                        {children}
-                    </li>
-                    <li>
-                        <img src={placeholder} />
-                        <div className="membros__nome">
-                            <span>João não matou o Cheske</span>
-                            <small>Garoto de programa</small>
-                        </div>
-                        {children}
-                    </li>
-                    <li>
-                        <img src={placeholder} />
-                        <div className="membros__nome">
-                            <span>João que mamou o Cheske</span>
-                            <small>Garoto de programa</small>
-                        </div>
-                        {children}
-                    </li>
-                    <li>
-                        <img src={placeholder} />
-                        <div className="membros__nome">
-                            <span>João que assasinou o Cheske</span>
-                            <small>Garoto de programa</small>
-                        </div>
-                        {children}
-                    </li>
+                    <MembroInstancia nome="jhon doe" cargo='membro' foto={perfil}>
+                        <MembroAdministrar />
+                    </MembroInstancia>
+                    <MembroInstancia nome="jhon doeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee" cargo='membro' foto={perfil}>
+                        <MembroAdministrar />
+                    </MembroInstancia>
+                    <MembroInstancia nome="jhon doe" cargo='membro' foto={perfil}>
+                        <MembroAdministrar />
+                    </MembroInstancia>
                 </ul>
             </div>
+            <button className='membros__convidar'>Convidar</button>
         </>
     )
 }

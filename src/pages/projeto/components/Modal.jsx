@@ -20,7 +20,7 @@ export default function Modal({modals, nome, children}){
             <button
                 className="modal__fechar"
                 onClick={() => modals[nome] = false}
-            > ✕ </button>
+            > <span>✕</span> </button>
             {children}
         </dialog>
     )

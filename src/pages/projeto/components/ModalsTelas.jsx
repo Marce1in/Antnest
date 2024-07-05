@@ -1,25 +1,23 @@
-import { MdDeliveryDining } from "react-icons/md";
 import Modal from "./Modal";
 import MembrosLista from "./MembrosLista"
+import CargosLista from "./CargosLista";
 
 export default function ModalsTelas({modals}){
     return (
         <>
             { modals.criar &&
-                <Modal modals={modals} nome="criar">
-                    <MembrosLista>
-
-                    </MembrosLista>
-                </Modal>
+                <div>Modal de Criar</div>
             }
             { modals.membros &&
                 <Modal modals={modals} nome="membros">
-                    <div>Modal de Membros</div>
+                    <MembrosLista>
+                    </MembrosLista>
                 </Modal>
             }
             { modals.cargos &&
                 <Modal modals={modals} nome="cargos">
-                    <div>Modal de Cargos</div>
+                    <CargosLista>
+                    </CargosLista>
                 </Modal>
             }
             { modals.config &&

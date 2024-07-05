@@ -1,0 +1,37 @@
+.membro {
+    display: flex;
+    flex-direction: row;
+
+    gap: .5rem;
+    border-top: 0.125rem solid black;
+
+    padding: 0.5rem;
+
+    > img {
+        width: 2.5rem;
+        border-radius: 100%;
+    }
+
+    &:last-child {
+        border-bottom: 2px solid black;
+    }
+}
+.membro__nome{
+    display: flex;
+    flex-direction: column;
+    width: 11rem;
+
+    > span {
+        text-wrap: nowrap;
+        overflow: hidden;
+
+        font-size: 1.1rem;
+        text-overflow: ellipsis;
+        font-weight: 600;
+    }
+    > small{
+        margin-top: -6px;
+        font-size: .7rem;
+        color: gray;
+    }
+}

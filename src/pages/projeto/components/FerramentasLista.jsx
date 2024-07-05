@@ -18,7 +18,7 @@ export default function FerramentasLista({modals}){
             </li>
             <li role="button"
                 tabIndex={0}
-                onClick={() => modals.criar = true}
+                onClick={() => modals.membros = true}
             >
                 <IoPeopleOutline  size="3.125rem"/>
                 <span>
@@ -27,7 +27,7 @@ export default function FerramentasLista({modals}){
             </li>
             <li role="button"
                 tabIndex={0}
-                onClick={() => modals.criar = true}
+                onClick={() => modals.cargos = true}
             >
                 <LuUserCog2 size="3.125rem"/>
                 <span>
@@ -36,7 +36,7 @@ export default function FerramentasLista({modals}){
             </li>
             <li role="button"
                 tabIndex={0}
-                onClick={() => modals.criar = true}
+                onClick={() => modals.config = true}
             >
                 <HiOutlineCog6Tooth size="3.125rem"/>
                 <span>

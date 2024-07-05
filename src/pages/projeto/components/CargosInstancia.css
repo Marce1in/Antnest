@@ -1,0 +1,65 @@
+.cargo{
+    display: flex;
+    flex-direction: row;
+    gap: .5rem;
+
+    padding: .5rem;
+}
+
+.cargo__dropdown{
+    > summary {
+        position: relative;
+
+        border: 1px solid black;
+        border-radius: 5px;
+
+        padding-left: 5px;
+        padding-right: 5px;
+
+        width: 8rem;
+
+        text-align: center;
+        text-wrap: nowrap;
+        overflow: hidden;
+
+        cursor: pointer;
+        list-style: none;
+
+        &::after{
+            content: ">";
+            font-weight: bolder;
+            position: absolute;
+            right: 10px;
+            transition: .2s;
+        }
+        .cargo__dropdown[open] > &::after{
+            transform: rotate(90deg);
+        }
+    }
+}
+
+.cargo__dropdown[open] > .cargo__permissoes{
+    margin-top: 5px;
+    border: 1px solid black;
+    border-radius: 10px;
+
+    opacity: 1;
+
+    > li {
+        font-size: .8rem;
+
+        &:first-child::before{
+            content: "Administra";
+            border-bottom: 1px solid black;
+            width: 90%;
+            text-align: center;
+        }
+    }
+}
+
+.cargo__permissoes{
+
+    opacity: 0;
+    transition: 2s;
+
+}
