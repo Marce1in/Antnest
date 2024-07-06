@@ -64,7 +64,9 @@ export default function LoginForm() {
           <div className="">
             <p className="font-bold">Não possue conta? </p>
             <button className="bg-secondary rounded-md p-1">
-              <Link to="/registro">Registre-se aqui</Link>
+              <Link to="/registro" className="text-sm">
+                Registre-se aqui
+              </Link>
             </button>
           </div>
         </form>

@@ -84,7 +84,7 @@ export default function RegistroForm() {
             <input
               type="submit"
               value="registrar-se"
-              className="text-primary bg-secondary rounded"
+              className="text-text bg-secondary rounded"
             />
           </div>
           <div className="">
