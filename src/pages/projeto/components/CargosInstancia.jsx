@@ -5,7 +5,7 @@ export default function CargosInstancia({children}){
         <>
             <li className="cargo">
                 <details className="cargo__dropdown" name="cargos">
-                    <summary>Membro</summary>
+                    <summary>Admin</summary>
                     <ul className="cargo__permissoes">
                         <li>Tarefas</li>
                         <li>Membros</li>

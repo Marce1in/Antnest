@@ -9,7 +9,15 @@ import { useModals } from './helpers/useModal'
 import ModalsTelas from './components/ModalsTelas'
 
 export default function Projeto() {
-    /** @type {Object}*/
+    /** 
+     *  @type {{
+     *  "gaveta": boolean,
+     *  "criar": boolean,
+     *  "membros": boolean,
+     *  "cargos": boolean,
+     *  "config": boolean
+     *  }}
+     * */
     const modals = useModals("gaveta", "criar", "membros", "cargos", "config")
 
     return (

@@ -7,7 +7,10 @@
 }
 
 .cargo__dropdown{
+    width: 8rem;
+
     > summary {
+        display: block;
         position: relative;
 
         border: 1px solid black;
@@ -16,21 +19,22 @@
         padding-left: 5px;
         padding-right: 5px;
 
-        width: 8rem;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
 
         text-align: center;
-        text-wrap: nowrap;
-        overflow: hidden;
 
-        cursor: pointer;
         list-style: none;
+        cursor: pointer;
 
         &::after{
-            content: ">";
-            font-weight: bolder;
             position: absolute;
-            right: 10px;
-            transition: .2s;
+            right: 2px;
+
+            content: "›";
+            font-weight: bolder;
+            transition: transform .2s;
         }
         .cargo__dropdown[open] > &::after{
             transform: rotate(90deg);
@@ -38,12 +42,10 @@
     }
 }
 
-.cargo__dropdown[open] > .cargo__permissoes{
+.cargo__permissoes{
     margin-top: 5px;
     border: 1px solid black;
     border-radius: 10px;
-
-    opacity: 1;
 
     > li {
         font-size: .8rem;
@@ -55,11 +57,4 @@
             text-align: center;
         }
     }
-}
-
-.cargo__permissoes{
-
-    opacity: 0;
-    transition: 2s;
-
 }

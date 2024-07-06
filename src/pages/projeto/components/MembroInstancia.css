@@ -19,7 +19,7 @@
 .membro__nome{
     display: flex;
     flex-direction: column;
-    width: 11rem;
+    width: 10rem;
 
     > span {
         text-wrap: nowrap;
