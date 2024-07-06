@@ -24,7 +24,7 @@ Tabela.iniciar("relacionamentoTarefaMembro", ["idTarefa", "idMembro"])
 Tabela.iniciar("cargo", ["id", "nome", "permissoes", "idProjeto"]) 
 
 //Se for true os botões de limpar e popular localStorage aparecerão em todas páginas.
-const debug = false
+const debug = true
 
 function App() {
 
