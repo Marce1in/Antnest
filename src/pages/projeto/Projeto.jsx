@@ -1,15 +1,14 @@
 import './Projeto.css'
-import Gaveta from './components/Gaveta'
 import { HiBars3 } from "react-icons/hi2";
-//@ts-ignore
+import Gaveta from './components/Gaveta'
 import Ferramentas from './components/Ferramentas'
-import Tarefas from './components/Tarefas'
 
 import { useModals } from './helpers/useModal'
 import ModalsTelas from './components/ModalsTelas'
+import TarefasLista from './components/TarefasLista';
 
 export default function Projeto() {
-    /** 
+    /**
      *  @type {{
      *  "gaveta": boolean,
      *  "criar": boolean,
@@ -17,7 +16,7 @@ export default function Projeto() {
      *  "cargos": boolean,
      *  "config": boolean
      *  }}
-     * */
+     */
     const modals = useModals("gaveta", "criar", "membros", "cargos", "config")
 
     return (
@@ -31,7 +30,7 @@ export default function Projeto() {
             </nav>
 
             <div className="layout">
-                <Tarefas />
+                <TarefasLista />
                 <Ferramentas modals={modals}/>
                 <Gaveta modals={modals} />
             </div>

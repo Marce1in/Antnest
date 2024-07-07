@@ -8,10 +8,6 @@
     padding-left: .5rem;
     gap: 2rem;
 
-    li {
-        border: 2px solid purple;
-        height: 9.375rem;
-    }
 
     @media screen and (width <= 768px){
         padding-right: .5rem

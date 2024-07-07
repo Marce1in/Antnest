@@ -6,7 +6,6 @@ export default function Modal({modals, nome, children}){
     const modalRef = useRef(null)
 
     useEffect(() => {
-    console.log(`Modal ${nome} state:`, modals[nome]);
         if (modals[nome] == true){
             modalRef.current.showModal()
         }

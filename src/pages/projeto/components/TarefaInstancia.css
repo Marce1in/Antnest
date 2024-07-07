@@ -1,0 +1,30 @@
+.tarefa {
+    position: relative;
+
+    border: 1px solid black;
+    border-radius: 20px;
+    height: 9.375rem;
+
+    > span {
+        max-width: 90%;
+
+        overflow: hidden;
+        text-wrap: nowrap;
+        text-overflow: ellipsis;
+
+        font-size: 1rem;
+        position: absolute;
+
+        top: 50%;
+        left: 50%;
+        translate: -50% -50%;
+    }
+
+    > time {
+        position: absolute;
+        font-size: .8rem;
+
+        bottom: 2px;
+        right: 10px;
+    }
+}
