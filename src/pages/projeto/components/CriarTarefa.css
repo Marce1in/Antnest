@@ -1,0 +1,99 @@
+.criarTarefa{
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    height: 16.185rem;
+    max-width: 28.125rem;
+}
+
+.criarTarefa__cabecalho{
+    padding-bottom: 10px;
+
+    > h2 {
+        font-size: .8rem;
+        text-align: center;
+    }
+    > hr {
+        border-color: black;
+        width: 75%;
+        margin: auto;
+    }
+}
+
+.criarTarefa__form{
+    margin-left: 10px;
+    margin-right: 10px;
+
+    display: grid;
+    height: 70%;
+    grid-template-areas:
+    "nome descricao"
+    "data descricao";
+}
+
+.criarTarefa__nome{
+    grid-area: nome;
+    align-self: end;
+
+    display: flex;
+
+    > input{
+        width: 75%;
+        border: 1px solid black;
+        margin-bottom: 10px;
+        text-indent: 5px;
+    }
+}
+
+
+.criarTarefa__data{
+    grid-area: data;
+
+    > input{
+        border: 1px solid black;
+    }
+
+}
+.criarTarefa__descricao{
+    grid-area: descricao;
+
+    border: 1px solid black;
+    border-radius: 10px;
+    resize: none;
+    text-indent: 5px;
+}
+
+.criarTarefa__criar{
+    padding-top: 4px;
+    padding-bottom: 4px;
+
+    display: flex;
+    justify-content: center;
+
+    > input {
+        border-radius: 10px;
+        border: 2px solid black;
+        background: yellowgreen;
+        padding: 6px 20%;
+    }
+}
+
+@media screen and (width < 500px){
+    .criarTarefa__form{
+        margin-left: 10px;
+        margin-right: 10px;
+
+        display: grid;
+        height: 70%;
+        grid-template-areas:
+            "nome"
+            "data"
+            "descricao";
+    }
+
+    .criarTarefa__nome, .criarTarefa__data{
+
+        justify-content: center;
+        justify-self: center;
+    }
+}

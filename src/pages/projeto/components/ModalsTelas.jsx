@@ -1,21 +1,26 @@
 import Modal from "./Modal";
+import MembrosLista from "./MembrosLista"
+import CargosLista from "./CargosLista";
+import CriarTarefa from "./CriarTarefa";
 
 export default function ModalsTelas({modals}){
     return (
         <>
             { modals.criar &&
                 <Modal modals={modals} nome="criar">
-                    <div>Modal de criar</div>
+                    <CriarTarefa />
                 </Modal>
             }
             { modals.membros &&
                 <Modal modals={modals} nome="membros">
-                    <div>Modal de Membros</div>
+                    <MembrosLista>
+                    </MembrosLista>
                 </Modal>
             }
             { modals.cargos &&
                 <Modal modals={modals} nome="cargos">
-                    <div>Modal de Cargos</div>
+                    <CargosLista>
+                    </CargosLista>
                 </Modal>
             }
             { modals.config &&

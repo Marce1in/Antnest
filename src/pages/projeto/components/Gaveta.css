@@ -23,6 +23,8 @@
     > li {
         display: flex;
         align-items: center;
+        flex-direction: row-reverse;
+        transform: translateX(-1px);
 
         gap: .625rem;
         padding-bottom: 1rem;
@@ -35,6 +37,7 @@
         }
 
         &:first-child {
+            transform: translateX(0);
             padding-bottom: 0;
         }
     }
