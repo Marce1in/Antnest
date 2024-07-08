@@ -22,6 +22,8 @@ export default function CargosLista({children=false, criar=false}){
             propriedadeExtra = React.cloneElement(children, { idCargo: cargo.id, cargos: cargos })
         }
 
+        console.log(cargo.permissoes)
+
         return (
             //@ts-ignore insuportável
             <CargosInstancia key={cargo.id} nome={cargo.nome} permissoes={cargo.permissoes}>

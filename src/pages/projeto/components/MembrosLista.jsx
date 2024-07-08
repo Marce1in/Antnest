@@ -3,9 +3,10 @@ import MembroInstancia from './MembroInstancia'
 import Tabela from '@tabela'
 import React from 'react'
 import { vazio } from '@utils'
-import { useTabela } from '@useTabela'
 import Modal from './Modal'
 import { useModals } from '../helpers/useModal'
+import CargosLista from './CargosLista'
+import MembroConvidar from './MembroConvidar'
 
 /** 
  * @param {Object} props
@@ -15,9 +16,7 @@ import { useModals } from '../helpers/useModal'
  * @param {import('react').ReactNode} [props.children] | [boolean]
  */
 export default function MembrosLista({membros, membrosTabela, criar=false, children = false}){
-    if (criar){
-        const modalscont = useModals("membroCargo", "membroCriar")
-    }
+    const modalscont = useModals("membroCargo", "membroConvidar")
 
     /** @type {Usuario[]}*/
     const usuarios = membros.map(membro =>
@@ -71,11 +70,13 @@ export default function MembrosLista({membros, membrosTabela, criar=false, child
                         className='membros__convidar'
                     > Convidar </button>
 
-                    <Modal>
-                        <MembroCargo />
+                    <Modal nome="membroCargo" modals={modalscont}>
+                        <CargosLista >
+
+                        </CargosLista>
                     </Modal>
-                    <Modal>
-                        <CriarMembro />
+                    <Modal nome="membroConvidar" modals={modalscont}>
+                        <MembroConvidar />
                     </Modal>
                 </>
 

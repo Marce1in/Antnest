@@ -18,14 +18,12 @@ export default function CargosInstancia({children, nome, permissoes}){
             <li className="cargo">
                 <details className="cargo__dropdown" name="cargos">
                     <summary>{nome}</summary>
-                    {vazio(permissoes) &&
                         <ul className="cargo__permissoes">
                             {permissoes.tarefas && <li>Tarefas</li>}
                             {permissoes.membros && <li>Membros</li>}
                             {permissoes.cargos  && <li>Cargos</li>}
                             {permissoes.projeto && <li>Projeto</li>}
                         </ul>
-                    }
                 </details>
                 {children}
             </li>
