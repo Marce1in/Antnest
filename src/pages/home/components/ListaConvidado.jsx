@@ -2,7 +2,9 @@ import Sessao from "@sessao";
 import Tabela from "@tabela";
 import { useNavigate } from "react-router-dom";
 //N sei pq ta dando erro :b
+// @ts-ignore
 import encontrarCargo from "/src/pages/projeto/helpers/handleCargo";
+// @ts-ignore
 import encontrarMembro from "/src/pages/projeto/helpers/handleMembro";
 
 export default function ListaConvidado({ id }){
@@ -29,11 +31,11 @@ export default function ListaConvidado({ id }){
                 null
             }else{
                 return(
-                    <div className="flex flex-col bg-accent justify-center items-center gap-8 border-black border-solid border-2 rounded p-4 min-w-64 max-h-56 min-h-48 box-content cursor-pointer">
+                    <div key={projeto.id} className="flex flex-col bg-accent justify-center items-center gap-8 border-black border-solid border-2 rounded p-4 min-w-64 max-h-56 min-h-48 box-content cursor-pointer">
                         <h1 className="text-2xl text-center">{projeto.nome}</h1>
                         <h2 className="text-center w-52 text-base">{projeto.descricao}</h2>
                         <div>
-                            <button className="bg-primary text-text py-2 px-4 rounded w-28 hover:bg-white focus:w-24 focus:h-8 text-center duration-500" onClick={entrarProjeto}>entrar</button>
+                            <button className="bg-primary text-text py-2 px-4 rounded w-28 hover:bg-white uppercase text-center duration-500" onClick={entrarProjeto}>entrar</button>
                         </div>
                     </div>
                 )
