@@ -8,9 +8,10 @@ import { useTabela } from '@useTabela'
 /** 
  * @param {Object} props
  * @param {Membro[]} props.membros
- * @param {import('react').ReactNode} props.children | boolean
+ * @param {boolean} [props.criar=false]
+ * @param {import('react').ReactNode} [props.children] | [boolean]
  */
-export default function MembrosLista({membros, children = false}){
+export default function MembrosLista({membros, criar=false, children = false}){
     const membrosTabela = useTabela("membro")
 
     /** @type {Usuario[]}*/
@@ -59,7 +60,11 @@ export default function MembrosLista({membros, children = false}){
                     }
                 </ul>
             </div>
-            { /* <button className='membros__convidar'>Convidar</button> */}
+            {criar &&
+                <button
+                    className='membros__convidar'
+                > Convidar </button>
+            }
         </>
     )
 }

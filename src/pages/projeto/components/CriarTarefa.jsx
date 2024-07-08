@@ -1,4 +1,3 @@
-import { useTabela } from "@useTabela"
 import "./CriarTarefa.css"
 import { useForm } from "react-hook-form"
 import Tabela from "@tabela"

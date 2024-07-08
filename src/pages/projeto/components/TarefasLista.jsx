@@ -11,6 +11,11 @@ export default function TarefasLista({tarefas}){
     const modal = useModals("tarefa", "membrosAlocados")
     const [tarefa, setTarefa] = useState({})
 
+    /**
+     * @type {Cargo}
+     */
+    const cargo = Sessao.obter("cargoSessao")
+
     /** @type {Tarefa[]}*/
     const tarefasProjeto = tarefas.encontrarPor("idProjeto", Sessao.obter("projetoSessao"))
 
@@ -38,6 +43,7 @@ export default function TarefasLista({tarefas}){
                             tarefas={tarefas}
                             //@ts-ignore << si fude, nem to te usando typescript
                             tarefa={tarefa}
+                            admin={cargo.permissoes.cargos}
                         />
                     </Modal>
                 }

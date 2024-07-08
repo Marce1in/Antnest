@@ -5,8 +5,14 @@ import CriarTarefa from "./CriarTarefa";
 import Sessao from "@sessao";
 import MembroAdministrar from "./MembroAdministrar";
 import { useTabela } from "@useTabela";
+import CargosRemover from "./CargosRemover";
 
 export default function ModalsTelas({modals, tarefas}){
+    /**
+     * @type {cargo}
+     */
+    const cargo = Sessao.obter("cargoSessao")
+
     function carregarMembros(){
         const membrosTabela = useTabela("membro")
         const membros = membrosTabela.encontrarPor("idProjeto", Sessao.obter("projetoSessao"))
@@ -16,25 +22,30 @@ export default function ModalsTelas({modals, tarefas}){
 
     return (
         <>
-            { modals.criar &&
+            { (modals.criar && cargo.permissoes.tarefas) &&
                 <Modal modals={modals} nome="criar">
                     <CriarTarefa tarefas={tarefas}/>
                 </Modal>
             }
             { modals.membros &&
                 <Modal modals={modals} nome="membros">
-                    <MembrosLista {...carregarMembros()}>
-                        <MembroAdministrar/>
+                    <MembrosLista {...carregarMembros()} criar={cargo.permissoes.membros}>
+                        { cargo.permissoes.membros &&
+                            <MembroAdministrar/>
+                        }
                     </MembrosLista>
                 </Modal>
             }
             { modals.cargos &&
                 <Modal modals={modals} nome="cargos">
-                    <CargosLista>
+                    <CargosLista criar={cargo.permissoes.cargos}>
+                        { cargo.permissoes.cargos &&
+                            <CargosRemover />
+                        }
                     </CargosLista>
                 </Modal>
             }
-            { modals.config &&
+            { (modals.config && cargo.permissoes.projeto) &&
                 <Modal modals={modals} nome="config">
                     <div>Modal de configs</div>
                 </Modal>

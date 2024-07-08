@@ -8,25 +8,31 @@ import { useNavigate } from "react-router-dom";
 import Sessao from "@sessao";
 
 export default function FerramentasLista({modals}){
+    /** @type {cargo}*/
+    const cargo = Sessao.obter("cargoSessao")
+
     const navegar = useNavigate()
     function sair(){
         Sessao.apagar("projetoSessao")
         Sessao.apagar("membroSessao")
+        Sessao.apagar("cargoSessao")
 
         navegar("/")
     }
 
     return (
         <>
-            <li role="button"
-                tabIndex={0}
-                onClick={() => modals.criar = true}
-            >
-                <MdOutlineCreate  size="3.125rem"/>
-                <span>
-                    Criar
-                </span>
-            </li>
+            {cargo.permissoes.tarefas &&
+                <li role="button"
+                    tabIndex={0}
+                    onClick={() => modals.criar = true}
+                >
+                    <MdOutlineCreate  size="3.125rem"/>
+                    <span>
+                        Criar
+                    </span>
+                </li>
+            }
             <li role="button"
                 tabIndex={0}
                 onClick={() => modals.membros = true}
@@ -45,15 +51,17 @@ export default function FerramentasLista({modals}){
                     Cargos
                 </span>
             </li>
-            <li role="button"
-                tabIndex={0}
-                onClick={() => modals.config = true}
-            >
-                <HiOutlineCog6Tooth size="3.125rem"/>
-                <span>
-                    Configurações
-                </span>
-            </li>
+            {cargo.permissoes.projeto &&
+                <li role="button"
+                    tabIndex={0}
+                    onClick={() => modals.config = true}
+                >
+                    <HiOutlineCog6Tooth size="3.125rem"/>
+                    <span>
+                        Configurações
+                    </span>
+                </li>
+            }
             <li role="button"
                 tabIndex={0}
                 onClick={() => sair()}

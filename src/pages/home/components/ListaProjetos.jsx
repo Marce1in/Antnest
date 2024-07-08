@@ -2,6 +2,9 @@ import Sessao from "@sessao";
 import Tabela from "@tabela";
 
 import { useNavigate } from "react-router-dom";
+//N sei pq ta dando erro :b
+import encontrarCargo from "/src/pages/projeto/helpers/handleCargo";
+import encontrarMembro from "/src/pages/projeto/helpers/handleMembro";
 
 
 export default function ListaProjetos({ id }) {
@@ -22,6 +25,8 @@ export default function ListaProjetos({ id }) {
 
     function entrarProjeto() {
       Sessao.criar(projeto.id, "projetoSessao");
+      Sessao.criar(encontrarMembro(), "membroSessao")
+      Sessao.criar(encontrarCargo(), "cargoSessao")
       navigator("/projeto")
     }
 
