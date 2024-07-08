@@ -1,20 +1,20 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import ListaProjetos from "./components/ListaProjetos";
-import Tabela from "@tabela";
 import Sessao from "@sessao";
-import { set } from "react-hook-form";
-import { useTabela } from "@useTabela";
 import Modal from "./components/Modal";
 import RegistroProjeto from "./components/RegistroProjeto";
 import ListaConvidado from "./components/ListaConvidado";
+import { useTabela } from "@useTabela";
 
 export default function Home() {
-  const [nome, setNome] = useState();
-  const [foto, setFoto] = useState();
   const [id, setId] = useState("");
   const [isOpen, setIsOpen] = useState(false);
   const navigator = useNavigate();
+
+  const usersTable = useTabela("usuario");
+  const user = usersTable.encontrarUmPor("id", id);
+
 
   useEffect(() => {
     if (!Sessao.validar()) {
@@ -25,11 +25,6 @@ export default function Home() {
     const sessao = Sessao.obter();
     setId(sessao);
 
-    const user = new Tabela("usuario");
-
-    const usuario = user.encontrarUmPor("id", id);
-    setNome(usuario.nome);
-    setFoto(usuario.urlImagem);
   }, []);
 
   function sair() {
@@ -47,10 +42,10 @@ export default function Home() {
         <nav>
           <ul className="md:flex items-center hidden">
             <div className="flex items-center gap-1">
-              <li className="hidden text-text first-letter:uppercase md:block">{nome}</li>
+              <li className="hidden text-text first-letter:uppercase md:block">{user.nome}</li>
               <li>
                 <img
-                  src="./guaxinim.jpg"
+                  src={user.urlImagem}
                   alt=""
                   className="rounded-full w-16 h-16 mr-4 border-2 border-primary border-solid"
                 />
