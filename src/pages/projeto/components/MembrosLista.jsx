@@ -1,12 +1,13 @@
 import './MembrosLista.css'
 import MembroInstancia from './MembroInstancia'
 import Tabela from '@tabela'
-import React from 'react'
+import React, { useState } from 'react'
 import { vazio } from '@utils'
 import Modal from './Modal'
 import { useModals } from '../helpers/useModal'
 import CargosLista from './CargosLista'
 import MembroConvidar from './MembroConvidar'
+import MembroMudarCargo from './MembroMudarCargo'
 
 /** 
  * @param {Object} props
@@ -16,7 +17,8 @@ import MembroConvidar from './MembroConvidar'
  * @param {import('react').ReactNode} [props.children] | [boolean]
  */
 export default function MembrosLista({membros, membrosTabela, criar=false, children = false}){
-    const modalscont = useModals("membroCargo", "membroConvidar")
+    const modalsCont = useModals("membroCargo", "membroConvidar")
+    const [membroId, setMembroId] = useState("")
 
     /** @type {Usuario[]}*/
     const usuarios = membros.map(membro =>
@@ -32,7 +34,12 @@ export default function MembrosLista({membros, membrosTabela, criar=false, child
 
         if(children){
             //@ts-ignore << Confia em mim, tá funcionando :)
-            propriedadeExtra = React.cloneElement(children, { idMembro: membros[i].id, membros: membrosTabela})
+            propriedadeExtra = React.cloneElement(children, {
+                idMembro: membros[i].id,
+                membros: membrosTabela,
+                setMembroId: setMembroId,
+                modalsCont: modalsCont
+            })
         }
 
         if (vazio(usuario)){
@@ -70,12 +77,12 @@ export default function MembrosLista({membros, membrosTabela, criar=false, child
                         className='membros__convidar'
                     > Convidar </button>
 
-                    <Modal nome="membroCargo" modals={modalscont}>
-                        <CargosLista >
-
+                    <Modal nome="membroCargo" modals={modalsCont}>
+                        <CargosLista>
+                            <MembroMudarCargo membroId={membroId} membrosTabela={membrosTabela}/>
                         </CargosLista>
                     </Modal>
-                    <Modal nome="membroConvidar" modals={modalscont}>
+                    <Modal nome="membroConvidar" modals={modalsCont}>
                         <MembroConvidar />
                     </Modal>
                 </>

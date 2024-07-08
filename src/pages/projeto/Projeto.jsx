@@ -10,10 +10,6 @@ import { useModals } from './helpers/useModal'
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTabela } from '@useTabela';
-import Tabela from '@tabela';
-import { vazio } from '@utils';
-import encontrarCargo from './helpers/handleCargo';
-import encontrarMembro from './helpers/handleMembro';
 
 export default function Projeto() {
     const navegar = useNavigate()

@@ -8,7 +8,7 @@ import { useModals } from "../helpers/useModal";
  * @param {string} [props.idMembro]
  * @param {Tabela} [props.membros]
  */
-export default function MembroAdministrar({idMembro, membros}){
+export default function MembroAdministrar({idMembro, membros, modalsCont, setMembroId}){
 
     function banir(){
         membros.deletarPor("id", idMembro)
@@ -22,7 +22,7 @@ export default function MembroAdministrar({idMembro, membros}){
     return(
         <>
             <button
-                onClick={() => modalControle.mudarCargo = true}
+                onClick={() => {modalsCont.membroCargo = true; setMembroId(idMembro)}}
             >
                 <LuUserCog2 color="green" size="1.5rem"/>
             </button>

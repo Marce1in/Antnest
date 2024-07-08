@@ -131,11 +131,16 @@ export default class Tabela {
      * @param {string} campo - O campo da tabela
      * @param {*} valor - O valor que será usado para localizar os objetos
      * @param {object} novosValores - Os novos valores para o objeto localizado
+     * @param {boolean} [inseguro=false] - Pula a validação do objeto
      *
      * @returns {void}
      */
-    mudarPor(campo, valor, novosValores){
-        this.#validarObjeto(novosValores)
+    mudarPor(campo, valor, novosValores, inseguro=false){
+
+        if(!inseguro){
+            this.#validarObjeto(novosValores)
+        }
+
         const tabela = [...this.#_tabela]
 
         tabela.forEach((objeto, i, tabela) => {
