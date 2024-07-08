@@ -18,6 +18,7 @@ import TarefaAlocar from "./TarefaAlocar"
 export default function TarefaModal({modalControle, tarefas, tarefa, admin = true}){
     const relacionamentos = useTabela("relacionamentoTarefaMembro")
     const tarefaRelacoes = relacionamentos.encontrarPor("idTarefa", tarefa.id)
+    const membros = useTabela("membro")
 
     function relaMembroTarefa(){
         const membrosTabela = new Tabela("membro")
@@ -212,6 +213,7 @@ export default function TarefaModal({modalControle, tarefas, tarefa, admin = tru
                 <Modal modals={modalControle} nome="membrosAlocados">
                     { admin ?
                         <MembrosLista
+                            membrosTabela={membros}
                             membros={
                                 Tabela.encontrarEmLocalStoragePor(
                                     "idProjeto",
@@ -227,6 +229,7 @@ export default function TarefaModal({modalControle, tarefas, tarefa, admin = tru
                         </MembrosLista>
                         :
                         <MembrosLista
+                            membrosTabela={membros}
                             membros={relaMembroTarefa()}
                             children={false}
                         />

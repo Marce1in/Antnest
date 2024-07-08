@@ -19,13 +19,13 @@ export default function CargosLista({children=false, criar=false}){
 
         if(children){
             //@ts-ignore << Confia em mim, tá funcionando :)
-            propriedadeExtra = React.cloneElement(children, { idCargo: cargo.id, cargos: cargos})
+            propriedadeExtra = React.cloneElement(children, { idCargo: cargo.id, cargos: cargos })
         }
 
         return (
             //@ts-ignore insuportável
             <CargosInstancia key={cargo.id} nome={cargo.nome} permissoes={cargo.permissoes}>
-                {children}
+                {propriedadeExtra}
             </CargosInstancia>
         )
     })

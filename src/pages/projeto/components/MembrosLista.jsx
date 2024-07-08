@@ -8,11 +8,11 @@ import { useTabela } from '@useTabela'
 /** 
  * @param {Object} props
  * @param {Membro[]} props.membros
+ * @param {Tabela} props.membrosTabela
  * @param {boolean} [props.criar=false]
  * @param {import('react').ReactNode} [props.children] | [boolean]
  */
-export default function MembrosLista({membros, criar=false, children = false}){
-    const membrosTabela = useTabela("membro")
+export default function MembrosLista({membros, membrosTabela, criar=false, children = false}){
 
     /** @type {Usuario[]}*/
     const usuarios = membros.map(membro =>

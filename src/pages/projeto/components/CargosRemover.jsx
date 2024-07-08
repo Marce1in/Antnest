@@ -9,6 +9,7 @@ import "./CargosRemover.css"
 export default function CargosRemover({idCargo, cargos}){
     function deletar(){
         cargos.deletarPor("id", idCargo)
+        cargos.enviarParaLocalStorage()
     }
 
     return(
