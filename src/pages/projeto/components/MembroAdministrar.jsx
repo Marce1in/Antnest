@@ -1,6 +1,7 @@
 import { LuUserCog2 } from "react-icons/lu";
 import "./MembroAdministrar.css"
 import Tabela from "@tabela";
+import { useModals } from "../helpers/useModal";
 
 /** 
  * @param {Object} props
@@ -18,11 +19,11 @@ export default function MembroAdministrar({idMembro, membros}){
         relacionamento.enviarParaLocalStorage()
     }
 
-    console.log(idMembro)
-    console.log(membros)
     return(
         <>
-            <button>
+            <button
+                onClick={() => modalControle.mudarCargo = true}
+            >
                 <LuUserCog2 color="green" size="1.5rem"/>
             </button>
             <button
