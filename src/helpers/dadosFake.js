@@ -28,35 +28,35 @@ function popularUsuario(){
         nome: "marcelo",
         email: "marcelo@gmail.com",
         senha: "1",
-        urlImagem: "/public/fotoUsuarioPlaceholder.jpg"
+        urlImagem: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSq0_R4Wce7MouVEYg6Dhl8eitb0mRk8VR3Ag&s"
     })
     usuarios.adicionar({
         id: "9c45c2f1-1761-3daa-ad31-1ff8703ae846",
         nome: "lorenzo",
         email: "lorenzo@gmail.com",
         senha: "1",
-        urlImagem: "/public/fotoUsuarioPlaceholder.jpg"
+        urlImagem: "https://pbs.twimg.com/profile_images/1752515582665068544/3UsnVSp5_400x400.jpg"
     })
     usuarios.adicionar({
         id: "bc27b4db-bc0f-34f9-ae8e-4b72f2d51b60",
         nome: "joao",
         email: "joao@gmail.com",
         senha: "1",
-        urlImagem: "/public/fotoUsuarioPlaceholder.jpg"
+        urlImagem: "https://img.redbull.com/images/c_crop,x_653,y_0,h_813,w_651/c_fill,w_450,h_600/q_auto:low,f_auto/redbullcom/2019/03/25/344dc5fd-48b0-4c55-bf19-7ea2fe53f6e5/sekiro-shadows-die-twice-lobo"
     })
     usuarios.adicionar({
         id: "bc15e987-c240-398e-a7b3-80ad343aecc2",
         nome: "fernando",
         email: "fernando@gmail.com",
         senha: "1",
-        urlImagem: "/public/fotoUsuarioPlaceholder.jpg"
+        urlImagem: "https://i.pinimg.com/1200x/c7/ca/ae/c7caae191a116b61e785d80dc2ede065.jpg"
     })
     usuarios.adicionar({
         id: "33c5b33c-0b68-33d0-b637-b2c256417bf3",
         nome: "guilherme",
         email: "guilherme",
         senha: "1",
-        urlImagem: "/public/fotoUsuarioPlaceholder.jpg"
+        urlImagem: "https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0f/2c/33/b2.jpg"
     })
 
     usuarios.enviarParaLocalStorage()
@@ -167,7 +167,7 @@ function popularMembros(){
         idProjeto: "d2fa764c-dcb6-320a-86e1-62e6dc209811", //AntNest
     })
     membros.adicionar({
-        id: "abe041fd-e94c-3153-acf9-c0bf589ca8f5",
+        id: "0f62e535-96c3-38a6-bc7d-7c1e0bb5a367",
         idUsuario: "bc27b4db-bc0f-34f9-ae8e-4b72f2d51b60", //joão
         idCargo: "16adf24a-516b-3184-801d-9a088a92c2ca", //mod
         idProjeto: "d2fa764c-dcb6-320a-86e1-62e6dc209811", //AntNest
@@ -228,7 +228,7 @@ function popularTarefas(){
         id: "eb043f54-8731-3652-91bd-b4d8d9a7da5c",
         nome: "Fazer Tela",
         descricao: "Fazer uma tela muito bonita e legal",
-        dataExpiracao: new Date(2024, 10, 14),
+        dataExpiracao: "2024-10-14",
         idProjeto: "d2fa764c-dcb6-320a-86e1-62e6dc209811", //AntNest
         status: 1
     })
@@ -236,7 +236,7 @@ function popularTarefas(){
         id: "2c2fd4e8-65be-3583-ad3a-61fc5ac528c2",
         nome: "Implementar lógica",
         descricao: "Fazer a lógica do arquivo lógica.jsx",
-        dataExpiracao: new Date(2024, 2, 12),
+        dataExpiracao: "2024-02-12",
         idProjeto: "d2fa764c-dcb6-320a-86e1-62e6dc209811", //AntNest
         status: 1
     })
@@ -244,7 +244,7 @@ function popularTarefas(){
         id: "0d76d45f-3f2d-358b-9b53-590fe667c835",
         nome: "Fazer Documentação",
         descricao: "Escrever a documentação do arquivo lógica.jsx",
-        dataExpiracao: new Date(2024, 11, 15),
+        dataExpiracao: "2024-11-15",
         idProjeto: "d2fa764c-dcb6-320a-86e1-62e6dc209811", //AntNest
         status: 0
     })
@@ -252,7 +252,7 @@ function popularTarefas(){
         id: "a868f263-0284-34fa-811e-91b191214fea",
         nome: "Escrever testes",
         descricao: "Escrever os testes para o arquivo testes.jsx",
-        dataExpiracao: new Date(2024, 4, 11),
+        dataExpiracao: "2024-04-11",
         idProjeto: "d2fa764c-dcb6-320a-86e1-62e6dc209811", //AntNest
         status: 2
     })
@@ -260,7 +260,7 @@ function popularTarefas(){
         id: "dc2fe11e-f3f0-32ff-bbfe-7b51f8bb9755",
         nome: "Apagar data",
         descricao: "Deletar data duplicada dentro da database",
-        dataExpiracao: new Date(2024, 1, 2),
+        dataExpiracao: "2024-01-02",
         idProjeto: "d2fa764c-dcb6-320a-86e1-62e6dc209811", //AntNest
         status: 3
     })
@@ -268,7 +268,7 @@ function popularTarefas(){
         id: "d057520e-a565-3a3e-beef-abca411bde27",
         nome: "Organizar reunião",
         descricao: "Organizar reunião com o CEO do projeto, Yago Farinhas",
-        dataExpiracao: new Date(2024, 10, 10),
+        dataExpiracao: "2024-10-10",
         idProjeto: "7f1f7bb1-bd4e-361f-a3f0-1a98bb4a9f54", //Gerenciador de bibliotecas
         status: 0
     })
@@ -276,7 +276,7 @@ function popularTarefas(){
         id: "bda0c062-52c2-3397-8a2c-b4addd783cfa",
         nome: "Documentar o Quadras esportivas",
         descricao: "Documentar as Quadras esportivas",
-        dataExpiracao: new Date(2024, 4, 10),
+        dataExpiracao: "2024-04-10",
         idProjeto: "1ae8ec9c-e36c-3f07-921c-c9621d1529c5", // Quadras Esportivas
         status: 3
     })
@@ -284,9 +284,9 @@ function popularTarefas(){
         id: "83c1bfe6-e5d9-3d70-924a-3c9974d62826",
         nome: "Preparar pitch para o sharkTank",
         descricao: "OBS: feliz aniversário",
-        dataExpiracao: new Date(2024, 12, 30),
+        dataExpiracao: "2024-12-30",
         idProjeto: "d2fa764c-dcb6-320a-86e1-62e6dc209811", //AntNest
-        status: 1 
+        status: 1
     })
 
     tarefas.enviarParaLocalStorage()
@@ -305,11 +305,11 @@ function populacaRelacionamentosTarefaMembro(){
     })
     relacionamento.adicionar({
         idTarefa: "83c1bfe6-e5d9-3d70-924a-3c9974d62826",
-        idMembro: ""
+        idMembro: "de5498a8-0e52-3037-b4fa-a24be4bfc154"
     })
     relacionamento.adicionar({
         idTarefa: "a868f263-0284-34fa-811e-91b191214fea",
-        idMembro: ""
+        idMembro: "de5498a8-0e52-3037-b4fa-a24be4bfc154"
     })
     relacionamento.adicionar({
         idTarefa: "2c2fd4e8-65be-3583-ad3a-61fc5ac528c2",

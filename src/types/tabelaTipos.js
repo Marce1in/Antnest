@@ -26,7 +26,7 @@
  * @property {uuid} id - Id da tarefa
  * @property {string} nome - Nome da tarefa
  * @property {string} descricao - Descrição da tarefa
- * @property {Date} dataExpiracao - Data que a tarefa irá expirar (ficando vermelha)
+ * @property {string} dataExpiracao - Data que a tarefa irá expirar (ficando vermelha)
  * @property {uuid} idProjeto - Id do projeto que a tarefa pertence
  * @property {number} status - O status da tarefa, 0 = A fazer, 1 = Em andamento, 2 = Concluída, 3 = Atrasada 
  * 

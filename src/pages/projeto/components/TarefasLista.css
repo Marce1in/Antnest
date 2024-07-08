@@ -1,6 +1,23 @@
 .tarefas{
     width: 100%;
+    height: calc(100dvh - 3.125rem);
 
+    overflow-y: auto;
+    direction: rtl;
+
+    &::-webkit-scrollbar {
+        width: 5px;
+    }
+    &::-webkit-scrollbar-track {
+        background: #f1f1f1; 
+    }
+    &::-webkit-scrollbar-thumb {
+        background: #888; 
+
+        &:hover {
+            background: #555; 
+        }
+    }
 }
 .tarefas__container{
     display: grid;
@@ -8,8 +25,18 @@
     padding-left: .5rem;
     gap: 2rem;
 
+    position: relative;
+
+    max-height: calc(100dvh - 3.125rem);
 
     @media screen and (width <= 768px){
+        direction: ltr;
         padding-right: .5rem
     }
+
 }
+
+.tarefas > * {
+    direction: ltr;
+}
+

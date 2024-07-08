@@ -163,13 +163,38 @@ export default class Tabela {
      * @summary Deleta todos objetos dentro da tabela que batem com o {campo: valor} 
      *
      * @param {string} campo - O campo da tabela
-     * @param {*} valor - O campo que será usado para localizar
+     * @param {*} valor - O valor que será usado para localizar
      *
      * @returns {void}
      */
     deletarPor(campo, valor){
 
         const tabela = this.#_tabela.filter(objeto => objeto[campo] != valor)
+
+        if (this.setTabelaHook){
+            this.setTabela(tabela)
+            this.setTabelaHook(tabela)
+        }
+        else{
+            this.setTabela(tabela)
+        }
+    }
+
+    /**
+     * @method deletarPelos
+     * @summary Deleta todos objetos dentro da tabela que batem com os {campos: valores}
+     *
+     * @param {string[]} campos - O campos da tabela
+     * @param {any[]} valores - Os valores que serão usado para encontrar
+     *
+     * @returns {void}
+     */
+    deletarPelos(campos, valores){
+
+        const tabela = this.#_tabela.filter(objeto =>
+            !campos.every((campo, index) =>
+                objeto[campo] === valores[index])
+        );
 
         if (this.setTabelaHook){
             this.setTabela(tabela)
@@ -319,7 +344,7 @@ export default class Tabela {
 
 
         if (objetosComOValor.length <= 0){ 
-            return [] 
+            return []
         }
         else if (unico){
             return objetosComOValor[0]

@@ -1,0 +1,241 @@
+.tarefaModal{
+    direction: ltr;
+
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    height: 16.185rem;
+    max-width: 28.125rem;
+}
+
+.tarefaModal__cabecalho{
+    padding-bottom: 10px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    > input, h2 {
+        text-align: center;
+        width: 70%;
+        margin: auto;
+    }
+    > hr {
+        border-color: black;
+        width: 75%;
+        margin: auto;
+    }
+}
+
+.tarefaModal__form{
+    margin-right: 10px;
+    margin-left: 10px;
+
+    display: grid;
+    height: 70%;
+    width: 26rem;
+
+    grid-template-areas:
+    "membros descricao"
+    "status  descricao";
+}
+
+
+.tarefaModal__membros{
+    grid-area: membros;
+
+    > button {
+        font-size: .9rem;
+
+        border: 1px solid black;
+        border-radius: 10px;
+
+        padding: 6px 10px;
+
+        transition: background .2s;
+
+        &:hover{
+            background: lightgray;
+        }
+    }
+}
+
+.tarefaModal__status{
+    grid-area: status;
+
+    display: flex;
+    flex-direction: column;
+
+    > label:first-child > div {
+
+        display:  flex;
+        flex-direction: column;
+        align-items: center;
+
+        > input[type=date]{
+            width: 8rem;
+            border: 1px solid black;
+        }
+        > time {
+            width: max-content;
+            padding: 0 2px;
+            border: 1px solid black;
+        }
+    }
+
+    > label{
+        padding-top: 12px;
+        display: flex;
+        gap: .2rem;
+
+        > span {
+            font-size: 1rem;
+        }
+    }
+}
+
+/*
+* Roubei todos os estilos do checkbox desse artigo aqui:
+* https://moderncss.dev/pure-css-custom-checkbox-style/
+*/
+.tarefaModal__customCheckbox{
+    appearance: none;
+    background-color: #fff;
+
+    width: 1.5rem;
+    height: 1.5rem;
+
+    cursor: pointer;
+
+    margin: 0;
+
+    border: 0.1rem solid black;
+    border-radius: 0.15rem;
+
+    transform: translateY(0.04rem);
+
+    display: grid;
+    place-content: center;
+
+    transition: .1s background-color;
+    outline: unset;
+
+    &::before {
+        content: "";
+
+        width: 1rem;
+        height: 1rem;
+
+        transform: scale(0);
+        transition: .1s transform;
+
+        box-shadow: inset 1rem 1rem green;
+
+        transform-origin: center;
+        clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+    }
+
+    &:checked{
+        border-color: green;
+
+        &::before{
+            transform: scale(1);
+        }
+    }
+}
+
+.tarefaModal__descricao{
+    grid-area: descricao;
+
+    border: 1px solid black;
+    border-radius: 10px;
+
+    text-indent: 5px;
+    resize: none;
+
+}
+
+.tarefaModal__botoes{
+    padding: 4px 20px;
+
+    display: flex;
+    justify-content: space-evenly;
+
+    gap: 1rem;
+
+    > button {
+        border: 1px solid black;
+        border-radius: 10px;
+
+        padding: 6px 10px;
+    }
+}
+
+.tarefaModal__salvar{
+    background: lightgreen;
+}
+.tarefaModal__participar{
+    background: lightblue;
+    flex-grow: 1;
+}
+.tarefaModal__deletar{
+    background: lightpink;
+}
+
+@media screen and (width < 500px){
+    .tarefaModal{
+        height: 25rem;
+        width: 16rem;
+    }
+
+    .tarefaModal__form{
+        margin-left: 10px;
+        margin-right: 10px;
+
+        display: grid;
+        width: 90%;
+        grid-template-areas:
+            "status"
+            "descricao"
+            "membros";
+        justify-items: center;
+        align-items: center;
+    }
+    .tarefaModal__descricao{
+        width: 100%;
+        height: 100%;
+    }
+
+    .tarefaModal__membros{
+        align-self: end;
+        padding-bottom: 10px;
+    }
+
+    .tarefaModal__status{
+        justify-self: top;
+        align-items: center;
+        /* O bom e velho transform vagabundo */
+        transform: translateY(-25px);
+    }
+    .tarefaModal__botoes{
+        flex-wrap: wrap-reverse;
+        align-items: center;
+        gap: .5rem;
+
+        > button {
+
+            width: 6rem;
+            padding: 2px 0;
+        }
+    }
+
+    .tarefaModal__deletar{
+        order: 2;
+    }
+    .tarefaModal__salvar{
+        order: 1;
+    }
+    .tarefaModal__participar{
+        order: 3;
+    }
+}

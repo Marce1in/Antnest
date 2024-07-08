@@ -1,27 +1,65 @@
 import './MembrosLista.css'
-//@ts-ignore
-import perfil from '../assets/fotoUsuarioPlaceholder.jpg'
 import MembroInstancia from './MembroInstancia'
-import MembroAdministrar from './MembroAdministrar'
+import Tabela from '@tabela'
+import React from 'react'
+import { vazio } from '@utils'
+import { useTabela } from '@useTabela'
 
-export default function MembrosLista({membros}){
+/** 
+ * @param {Object} props
+ * @param {Membro[]} props.membros
+ * @param {import('react').ReactNode} props.children | boolean
+ */
+export default function MembrosLista({membros, children = false}){
+    const membrosTabela = useTabela("membro")
+
+    /** @type {Usuario[]}*/
+    const usuarios = membros.map(membro =>
+        Tabela.encontrarEmLocalStoragePor("id", membro.idUsuario, "usuario", true)
+    )
+    /** @type {Cargo[]}*/
+    const cargos = membros.map(membro =>
+        Tabela.encontrarEmLocalStoragePor("id", membro.idCargo, "cargo", true)
+    )
+
+    const membrosLista = usuarios.map((usuario, i) => {
+        let propriedadeExtra = children
+
+        if(children){
+            //@ts-ignore << Confia em mim, tá funcionando :)
+            propriedadeExtra = React.cloneElement(children, { idMembro: membros[i].id, membros: membrosTabela})
+        }
+
+        if (vazio(usuario)){
+            return
+        }
+
+        return (
+            <MembroInstancia
+                key={membros[i].id}
+                nome={usuario.nome}
+                foto={usuario.urlImagem}
+                cargo={cargos[i].nome}
+            >
+                {propriedadeExtra}
+            </MembroInstancia>
+        )
+    }
+    )
 
     return (
         <>
             <div className="membros">
                 <ul className="membros__lista">
-                    <MembroInstancia nome="jhon doe" cargo='membro' foto={perfil}>
-                        <MembroAdministrar />
-                    </MembroInstancia>
-                    <MembroInstancia nome="jhon doeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee" cargo='membro' foto={perfil}>
-                        <MembroAdministrar />
-                    </MembroInstancia>
-                    <MembroInstancia nome="jhon doe" cargo='membro' foto={perfil}>
-                        <MembroAdministrar />
-                    </MembroInstancia>
+                    {membrosLista.length <= 0 ? 
+                        //Sim. Eu usei tailwind aqui, tô sem paciência
+                        <span className='text-sm px-10'>Ops!, nenhum Membro aqui!</span>
+                        :
+                        membrosLista
+                    }
                 </ul>
             </div>
-            <button className='membros__convidar'>Convidar</button>
+            { /* <button className='membros__convidar'>Convidar</button> */}
         </>
     )
 }
