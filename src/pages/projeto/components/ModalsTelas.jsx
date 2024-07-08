@@ -6,6 +6,7 @@ import Sessao from "@sessao";
 import MembroAdministrar from "./MembroAdministrar";
 import { useTabela } from "@useTabela";
 import CargosRemover from "./CargosRemover";
+import ConfiguracoesProjeto from "./ConfiguracoesProjeto";
 
 export default function ModalsTelas({modals, tarefas}){
     /**
@@ -47,7 +48,7 @@ export default function ModalsTelas({modals, tarefas}){
             }
             { (modals.config && cargo.permissoes.projeto) &&
                 <Modal modals={modals} nome="config">
-                    <div>Modal de configs</div>
+                    <ConfiguracoesProjeto />
                 </Modal>
             }
         </>
