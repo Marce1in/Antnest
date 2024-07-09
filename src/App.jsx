@@ -14,6 +14,7 @@ import {
 import Tabela from '@tabela'
 import { Toaster } from 'sonner'
 import { popularTabelas, resetarLocalStorage } from './helpers/dadosFake'
+import { createPortal } from 'react-dom'
 
 // Iniciando todas as tabelas
 Tabela.iniciar("usuario", ["id", "nome", "email", "senha", "urlImagem"])
@@ -24,7 +25,7 @@ Tabela.iniciar("relacionamentoTarefaMembro", ["idTarefa", "idMembro"])
 Tabela.iniciar("cargo", ["id", "nome", "permissoes", "idProjeto"]) 
 
 //Se for true os botões de limpar e popular localStorage aparecerão em todas páginas.
-const debug = false
+const debug = true
 
 function App() {
 
@@ -37,7 +38,8 @@ function App() {
                     <Route path="/registro" element={<Registro />} />
                     <Route path="/projeto" element={<Projeto />} />
                 </Routes>
-            </Router>
+                </Router>
+
             <Toaster richColors/>
 
             {debug &&

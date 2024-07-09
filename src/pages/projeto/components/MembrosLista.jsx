@@ -75,6 +75,7 @@ export default function MembrosLista({membros, membrosTabela, criar=false, child
                 <>
                     <button
                         className='membros__convidar'
+                        onClick={() => modalsCont.membroConvidar = true}
                     > Convidar </button>
 
                     <Modal nome="membroCargo" modals={modalsCont}>
@@ -83,7 +84,7 @@ export default function MembrosLista({membros, membrosTabela, criar=false, child
                         </CargosLista>
                     </Modal>
                     <Modal nome="membroConvidar" modals={modalsCont}>
-                        <MembroConvidar />
+                        <MembroConvidar modalControle={modalsCont} membros={membrosTabela}/>
                     </Modal>
                 </>
 

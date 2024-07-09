@@ -49,11 +49,11 @@ const dono = () =>
         ).id
 
 function criarCargosFalsos(){
-    if(!dono()){
+    if(dono()){
         /** @type {Cargo} */
         const cargoDono = {
-            id: "0",
-            idProjeto: "0",
+            id: "",
+            idProjeto: "",
             nome: "",
             permissoes: {
                 "tarefas": true,
@@ -68,8 +68,8 @@ function criarCargosFalsos(){
 
     else {
         const cargoVisitante = {
-            id: "0",
-            idProjeto: "0",
+            id: "",
+            idProjeto: "",
             nome: "",
             permissoes: {
                 "tarefas": false,

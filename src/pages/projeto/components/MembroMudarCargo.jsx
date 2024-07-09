@@ -3,7 +3,7 @@ import Tabela from "@tabela"
 
 /** @param {Object} props
 * @param {string} props.membroId
-* @param {string} props.idCargo
+* @param {string} [props.idCargo]
 * @param {Tabela} props.membrosTabela
 */
 export default function MembroMudarCargo({membroId, idCargo, membrosTabela}){
@@ -27,9 +27,9 @@ export default function MembroMudarCargo({membroId, idCargo, membrosTabela}){
 
     return (
         <>
-            <button
+            <button className="self-start"
                 onClick={() => mudarCargo()}
-            > o </button>
+            > [+] </button>
         </>
     )
 }
