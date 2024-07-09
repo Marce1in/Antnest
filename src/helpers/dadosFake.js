@@ -262,7 +262,7 @@ function popularTarefas(){
         descricao: "Deletar data duplicada dentro da database",
         dataExpiracao: "2024-01-02",
         idProjeto: "d2fa764c-dcb6-320a-86e1-62e6dc209811", //AntNest
-        status: 3
+        status: 2
     })
     tarefas.adicionar({
         id: "d057520e-a565-3a3e-beef-abca411bde27",
@@ -278,7 +278,7 @@ function popularTarefas(){
         descricao: "Documentar as Quadras esportivas",
         dataExpiracao: "2024-04-10",
         idProjeto: "1ae8ec9c-e36c-3f07-921c-c9621d1529c5", // Quadras Esportivas
-        status: 3
+        status: 2
     })
     tarefas.adicionar({
         id: "83c1bfe6-e5d9-3d70-924a-3c9974d62826",

@@ -1,4 +1,3 @@
-import { vazio } from "@utils"
 import "./CargosInstancia.css"
 
 /** 
@@ -13,6 +12,9 @@ import "./CargosInstancia.css"
  * }} prop.permissoes
  */
 export default function CargosInstancia({children, nome, permissoes}){
+    function nenhumaPermissao(){
+        return !Object.values(permissoes).some((perm) => perm)
+    }
     return (
         <>
             <li className="cargo">
@@ -23,6 +25,7 @@ export default function CargosInstancia({children, nome, permissoes}){
                             {permissoes.membros && <li>Membros</li>}
                             {permissoes.cargos  && <li>Cargos</li>}
                             {permissoes.projeto && <li>Projeto</li>}
+                            {nenhumaPermissao() && <li>Nada :(</li>}
                         </ul>
                 </details>
                 {children}

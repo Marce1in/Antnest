@@ -3,6 +3,9 @@ import "./CargosLista.css"
 import { useTabela } from "@useTabela";
 import Sessao from "@sessao";
 import React from "react";
+import { useModals } from "../helpers/useModal";
+import Modal from "./Modal";
+import CargosCriar from "./CargosCriar";
 
 /** 
  * @param {Object} props
@@ -11,6 +14,8 @@ import React from "react";
  */
 export default function CargosLista({children=false, criar=false}){
     const cargos = useTabela("cargo")
+    const modals = useModals("criarCargo")
+
     /** @type {Cargo[]} */
     const cargosProjeto = cargos.encontrarPor("idProjeto", Sessao.obter("projetoSessao"))
 
@@ -39,8 +44,16 @@ export default function CargosLista({children=false, criar=false}){
             </div>
             {criar &&
                 <button
+                    onClick={() => modals.criarCargo = true}
                     className='cargos__criar'
                 > Criar </button>
+            }
+
+            {modals.criarCargo && 
+
+                <Modal modals={modals} nome={"criarCargo"}>
+                    <CargosCriar cargos={cargos}/>
+                </Modal>
             }
         </>
     )

@@ -28,9 +28,11 @@ export default function TarefaAlocar({idMembro, membros, relacionamento, tarefaR
         }
 
         relacionamento.adicionar(relacao)
+        relacionamento.enviarParaLocalStorage()
     }
     function desalocar(){
         relacionamento.deletarPelos(["idTarefa", "idMembro"], [idTarefa, idMembro])
+        relacionamento.enviarParaLocalStorage()
     }
 
 

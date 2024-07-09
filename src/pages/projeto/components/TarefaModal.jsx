@@ -20,6 +20,8 @@ export default function TarefaModal({modalControle, tarefas, tarefa, admin = tru
     const tarefaRelacoes = relacionamentos.encontrarPor("idTarefa", tarefa.id)
     const membros = useTabela("membro")
 
+    console.log("foo",tarefaRelacoes)
+
     function relaMembroTarefa(){
         const membrosTabela = new Tabela("membro")
 
@@ -101,7 +103,7 @@ export default function TarefaModal({modalControle, tarefas, tarefa, admin = tru
         tarefas.mudarPor("id", tarefa.id, {
             "nome": data.nome,
             "dataExpiracao": data.data,
-            "status": data.status ? 2 : 0,
+            "status": data.status ? 2 : vazio(tarefaRelacoes) ? 0 : 1,
             "descricao": data.descricao,
         })
 

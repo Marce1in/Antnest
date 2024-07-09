@@ -19,7 +19,7 @@
 .cargos__criar{
     width: 55%;
 
-    border: 2px solid black;
+    border: 1px solid black;
     border-radius: 10px;
 
     padding-top: 5px;
@@ -27,5 +27,5 @@
     margin-bottom: 1.875rem;
     margin-left: 23%;
 
-    background: greenyellow;
+    background: lightgreen;
 }
