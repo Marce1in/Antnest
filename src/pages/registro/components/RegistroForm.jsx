@@ -30,7 +30,7 @@ export default function RegistroForm() {
       nome: data.nome,
       email: data.email,
       senha: data.senha,
-      urlImagem: "/public/fotoUsuarioPlaceholder.jpg",
+      urlImagem: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTa6YvRump6DC1zR3Bu5fz9358Gcgviuu5nag&s",
     };
 
     usuarios.adicionar(usuario);
