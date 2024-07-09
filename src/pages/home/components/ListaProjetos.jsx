@@ -10,9 +10,8 @@ import encontrarMembro from "/src/pages/projeto/helpers/handleMembro";
 import { useTabela } from "@useTabela";
 
 
-export default function ListaProjetos({ id }) {
+export default function ListaProjetos({ id, projetos }) {
   const navigator = useNavigate();
-  const projetos = useTabela("projeto");
   const projetosUsuario = projetos.encontrarPor("idDono", id);
 
   const membros = new Tabela("membro");

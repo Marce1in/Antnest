@@ -2,11 +2,10 @@ import Tabela from "@tabela";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 
-export default function RegistroProjeto({id}) {
+export default function RegistroProjeto({id, projetos}) {
     const {register, handleSubmit, reset} = useForm();
 
     function registrar(data){
-        const projetos = new Tabela("projeto");
 
         const projeto = {
             id: crypto.randomUUID(),

@@ -7,13 +7,12 @@ import encontrarCargo from "/src/pages/projeto/helpers/handleCargo";
 // @ts-ignore
 import encontrarMembro from "/src/pages/projeto/helpers/handleMembro";
 
-export default function ListaConvidado({ id }){
+export default function ListaConvidado({ id, projetos }){
     const navigator = useNavigate();
     const membros = new Tabela("membro");
     const membrosProjects = membros.encontrarPor("idUsuario", id);
 
     const Listagem = membrosProjects.map((membro) => {
-        const projetos = new Tabela("projeto");
         const projeto = projetos.encontrarPor("id", membro.idProjeto);
 
 

@@ -14,6 +14,7 @@ export default function Home() {
 
   const usersTable = useTabela("usuario");
   const user = usersTable.encontrarUmPor("id", id);
+  const projeto = useTabela("projeto")
 
 
   useEffect(() => {
@@ -82,10 +83,10 @@ export default function Home() {
               </button>
             </div>
             <Modal isOpen={isOpen} setModalOpen={() => setIsOpen(!isOpen)}>
-              <RegistroProjeto id = {id}/>
+              <RegistroProjeto id={id} projetos={projeto}/>
             </Modal>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-7 place-items-center md:place-items-stretch">
-              <ListaProjetos id={id} />
+              <ListaProjetos id={id} projetos={projeto}/>
             </div>
           </div>
 
@@ -96,7 +97,7 @@ export default function Home() {
               </h2>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-7 place-items-center md:place-items-stretch">   
-                <ListaConvidado id={id}/>
+                <ListaConvidado id={id} projetos={projeto}/>
             </div>
           </div>
         </section>
